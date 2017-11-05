@@ -1,5 +1,5 @@
 
-package m03_uf5_t4;
+package test;
 
 public class Main {
 
