@@ -10,5 +10,14 @@ package utils;
  * @author Diego
  */
 public enum EnumTypeCategory {
-    //DEPORTES 1, PROGRAMACION 2;
+    DEPORTES(0), PROGRAMACION(1), 
+    CULTURA(2), TECNOLOGIA(3),
+    MUNDO_LABORAL(4);
+    private final int value;
+
+    private EnumTypeCategory(int value) {
+        this.value = value;
+    }
+    
+    
 }
