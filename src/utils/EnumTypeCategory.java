@@ -19,5 +19,4 @@ public enum EnumTypeCategory {
         this.value = value;
     }
     
-    
 }
