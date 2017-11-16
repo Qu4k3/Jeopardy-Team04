@@ -2,6 +2,7 @@
 package test;
 
 import view.PlayersDataView;
+import view.BoardView;
 import view.StartView;
 
 public class Main {
@@ -17,6 +18,11 @@ public class Main {
 
         PlayersDataView view = new PlayersDataView();
 
+        
+        //StartView.startPantallaInicio();
+        BoardView view = new BoardView();
+        //BoardController controller = new BoardController(view);
+        
     }
 
 }
