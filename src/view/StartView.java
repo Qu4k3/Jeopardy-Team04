@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -11,29 +10,57 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class StartView {
+public class StartView extends JFrame {
     
     private static JLabel message1;
     private static JLabel message2;
     private static JLabel message3;
     private static JLabel animation;
+    private static JLabel logo;
+    private static JPanel centerPanel;
+    
+    public StartView() {
+
+        this.setTitle("JeopardyGame! - Iniciando el juego");
+        this.setPreferredSize(new Dimension(560, 360));
+        this.setLocation(250, 250);
+        this.setResizable(false);
+        
+        ImageIcon img = new ImageIcon("img/logo/favicon.ico");
+        this.setIconImage(img.getImage());
+
+        addComponentsToPane(this.getContentPane());
+        this.pack();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);       
+        
+        showmesage();
+        
+        try {
+            Thread.sleep(1000);
+            this.setVisible(false);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     
     private static void addComponentsToPane(Container pane) {
-
-        JPanel centerPanel = new JPanel();
+               
+        centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 
-        centerPanel.add(Box.createVerticalStrut(30));
+        // espaciado
+        centerPanel.add(Box.createVerticalStrut(50));
         
-        JLabel picture = new JLabel(new ImageIcon("img/logo/jeo_green.png"));
-        picture.setAlignmentX(Component.CENTER_ALIGNMENT);
-        centerPanel.add(picture);
-
+        logo = new JLabel(new ImageIcon("img/logo/jeo_green.png"));
+        logo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(logo);
         
+        // espaciado
         centerPanel.add(Box.createVerticalStrut(50));
         
         // Gif de carga
-        animation = new JLabel(new ImageIcon("img/animated/gift.GIF"));
+        animation = new JLabel(new ImageIcon("img/animated/ripple.gif"));
         animation.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(animation);
         
@@ -57,45 +84,10 @@ public class StartView {
         message3.setAlignmentX(Component.CENTER_ALIGNMENT);
         message3.setFont(message3.getFont().deriveFont(16.0f));
         centerPanel.add(message3);
-
         
         pane.add(centerPanel);
-
-        //creamos panel parte de abajo
-        JPanel parteAbajoPanel = new JPanel();
-        parteAbajoPanel.setLayout(new BorderLayout());
-
-        //Define panel parte abajo
-        JLabel authors = new JLabel(" Team 04 - Michael Egea, Paul Guillamon, Diego Santamarta");
-        parteAbajoPanel.add(authors);
-
-        pane.add(parteAbajoPanel, BorderLayout.PAGE_END);
-
-    }
     
-    public static void startPantallaInicio() {
-
-        JFrame frame = new JFrame("JeopardyGame! - Iniciando");
-        frame.setPreferredSize(new Dimension(560, 360));
-        frame.setLocation(250, 250);
-        frame.setResizable(false);
-        ImageIcon img = new ImageIcon("img/logo/favicon.ico");
-        frame.setIconImage(img.getImage());
-
-        addComponentsToPane(frame.getContentPane());
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        
-        showmesage();
-        
-        try {
-            Thread.sleep(1000);
-            frame.setVisible(false);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
+    }   
 
     public static void showmesage() {
 
