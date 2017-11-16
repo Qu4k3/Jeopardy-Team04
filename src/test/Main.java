@@ -1,6 +1,7 @@
 
 package test;
 
+import view.BoardView;
 import view.StartView;
 
 public class Main {
@@ -10,7 +11,9 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        //StartView.startPantallaInicio();        
+        //StartView.startPantallaInicio();
+        BoardView view = new BoardView();
+        //BoardController controller = new BoardController(view);
         
     }
     

@@ -9,6 +9,6 @@ package controller;
  *
  * @author Diego
  */
-public class GameController {
+public class BoardController {
     
 }
