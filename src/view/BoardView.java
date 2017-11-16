@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -43,13 +44,15 @@ public class BoardView extends JFrame {
     Border border = LineBorder.createGrayLineBorder();
     
     public BoardView() {
-        this.setTitle("JEOPARDY");
+        this.setTitle("JeopardyGame! - Game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addComponentsToPane(this.getContentPane());
         this.setResizable(false);
         this.pack();
         this.setSize(1024, 720);
         this.setVisible(true);
+        ImageIcon img = new ImageIcon("img/logo/favicon.ico");
+        this.setIconImage(img.getImage());
     }
 
     void addComponentsToPane(Container contenido) {
@@ -100,16 +103,16 @@ public class BoardView extends JFrame {
                 score = new JLabel(SCORE);
                 player1Score = new JLabel (Integer.toString(0));
             player1Panel.add(player1Name, BorderLayout.NORTH);
-            player1Panel.add(score, BorderLayout.WEST);
-            player1Panel.add(player1Score, BorderLayout.EAST);
+            player1Panel.add(score, BorderLayout.CENTER);
+            player1Panel.add(player1Score, BorderLayout.SOUTH);
         playersPanel.add(player1Panel, BorderLayout.NORTH);
             
             roundPanel = new JPanel(new BorderLayout(200, 100));
             roundPanel.setBorder(border);
                 round = new JLabel(ROUND);
                 numberRound = new JLabel(Integer.toString(0));//Numero de ronda
-            roundPanel.add(round, BorderLayout.WEST);
-            roundPanel.add(numberRound, BorderLayout.EAST);
+            roundPanel.add(round, BorderLayout.NORTH);
+            roundPanel.add(numberRound, BorderLayout.SOUTH);
         playersPanel.add(roundPanel, BorderLayout.CENTER);
             
             player2Panel = new JPanel(new BorderLayout(200, 200));
@@ -118,8 +121,8 @@ public class BoardView extends JFrame {
                 score = new JLabel(SCORE);
                 player2Score = new JLabel (Integer.toString(0));
             player2Panel.add(player2Name, BorderLayout.NORTH);
-            player2Panel.add(score, BorderLayout.WEST);
-            player2Panel.add(player2Score, BorderLayout.EAST);
+            player2Panel.add(score, BorderLayout.CENTER);
+            player2Panel.add(player2Score, BorderLayout.SOUTH);
         playersPanel.add(player2Panel, BorderLayout.SOUTH);
             
     contenido.add(boardPanel, BorderLayout.WEST);
