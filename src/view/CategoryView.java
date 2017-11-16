@@ -5,10 +5,21 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Diego
  */
-public class CategoryView {
+public class CategoryView extends JFrame {
+
+    JLabel title;
+    JButton[] categorias;
+    JLabel playerOne;
+    JLabel playerTwo;
     
+    
+
 }
