@@ -2,6 +2,7 @@
 package test;
 
 import view.StartView;
+import view.WinnerView;
 
 public class Main {
 
@@ -10,7 +11,8 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        //StartView.startPantallaInicio();        
+        //StartView view = new StartView(); 
+        WinnerView view = new WinnerView();
         
     }
     
