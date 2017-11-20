@@ -1,6 +1,8 @@
 
 package test;
 
+import view.BoardView;
+import view.CategoryView;
 import view.PlayersDataView;
 import view.StartView;
 
@@ -11,12 +13,11 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        //StartView.startPantallaInicio();        
-
-
-
-        PlayersDataView view = new PlayersDataView();
-
+        //StartView.startPantallaInicio();         
+        
+        
+        BoardView view = new BoardView();
+/*       PlayersDataView view = new PlayersDataView(); *///CategoryView view = new CategoryView();
     }
 
 }

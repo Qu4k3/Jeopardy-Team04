@@ -48,7 +48,6 @@ public class PlayersDataView extends JFrame {
     }
 
     private void addComponentsTopane(Container pane) {
-
         centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
         centerPanel.add(Box.createVerticalStrut(50));
@@ -61,13 +60,11 @@ public class PlayersDataView extends JFrame {
         centerPanel.add(tittleView);
 //        pane.add(centerPanel);
        centerPanel.add(Box.createVerticalStrut(70));
-
         // playersPanel
         playersPanel = new JPanel();
         //textField Player1
         playerOne = new JTextField(10);
         playerOne.setOpaque(true);
-        
         playersPanel.add(playerOne);
         //textField Player1
         playerTwo = new JTextField(10);

@@ -5,17 +5,17 @@
             <url>src/view/PlayersDataView.java</url>
             <bookmark id="1">
                 <name/>
-                <line>74</line>
+                <line>71</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/test/Main.java</file>
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/BoardView.java</file>
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/CategoryView.java</file>
+            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/StartView.java</file>
             <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/PlayersDataView.java</file>
+            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/CategoryView.java</file>
+            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/test/Main.java</file>
         </group>
     </open-files>
 </project-private>
