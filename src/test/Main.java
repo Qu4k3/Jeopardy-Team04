@@ -25,11 +25,11 @@ public class Main {
 
 
 
-        PlayersDataView view = new PlayersDataView();
+        //PlayersDataView view = new PlayersDataView();
 
         
         //StartView.startPantallaInicio();
-        BoardView view = new BoardView();
+        // BoardView view = new BoardView();
         //BoardController controller = new BoardController(view);
 
         
