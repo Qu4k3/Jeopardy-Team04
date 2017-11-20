@@ -1,8 +1,9 @@
 
 package test;
 
-import view.PlayersDataView;
 import view.BoardView;
+import view.CategoryView;
+import view.PlayersDataView;
 import view.StartView;
 import view.WinnerView;
 
@@ -13,6 +14,8 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        //StartView.startPantallaInicio();         
+        
         
         //StartView view = new StartView(); 
         WinnerView view = new WinnerView();
@@ -30,6 +33,8 @@ public class Main {
         //BoardController controller = new BoardController(view);
 
         
+        BoardView view = new BoardView();
+/*       PlayersDataView view = new PlayersDataView(); *///CategoryView view = new CategoryView();
     }
 
 }
