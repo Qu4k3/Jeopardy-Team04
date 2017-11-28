@@ -31,7 +31,7 @@ public class PlayersDataView extends JFrame{
     JLabel labelPlayerOne, labelPlayerTwo;
     BorderLayout principalLayout;
     JLabel prueba;
-    
+    String bgColor;
     JPanel playersPanel;
     JPanel centerPanel;
     ImageIcon  image,imagePrueba;
@@ -105,9 +105,8 @@ public class PlayersDataView extends JFrame{
         startGame = new JButton();
         startGame.setText("Start Game");
         startGame.setAlignmentX(Component.CENTER_ALIGNMENT);
-        String cm="#ffff";
-        startGame.setBackground(Color.decode(cm));
-
+        bgColor="#29c42f";
+        startGame.setBackground(Color.decode(bgColor));
         centerPanel.add(startGame);
         centerPanel.add(Box.createVerticalStrut(65));
 
@@ -116,5 +115,3 @@ public class PlayersDataView extends JFrame{
     }
 
 }
-
-
