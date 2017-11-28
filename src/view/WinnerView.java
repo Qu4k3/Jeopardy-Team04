@@ -16,9 +16,9 @@ import javax.swing.border.EmptyBorder;
 
 public class WinnerView extends JFrame {
     
-    private static JLabel title, player, wallet, mistakes, logo;
-    private static JPanel centeredBoxPanel, middlePanel, buttonsPanel, playerInfo, player2Info;
-    private static JButton exitButton, retryButton;
+    public static JLabel title, player, wallet, mistakes, logo;
+    public static JPanel centeredBoxPanel, middlePanel, buttonsPanel, playerInfo, player2Info;
+    public static JButton exitButton, retryButton;
     
     public WinnerView() {
         this.setTitle("JeopardyGame! - Results");
@@ -108,24 +108,23 @@ public class WinnerView extends JFrame {
         centeredBoxPanel.add(middlePanel);
         
         // espaciado
-        centeredBoxPanel.add(Box.createVerticalStrut(10));        
-        
+        centeredBoxPanel.add(Box.createVerticalStrut(10));  
         
         buttonsPanel = new JPanel();
         
-        exitButton = new JButton("Exit");
-        exitButton.setVerticalTextPosition(AbstractButton.CENTER);
-        exitButton.setHorizontalTextPosition(AbstractButton.CENTER);
-        exitButton.setMnemonic(KeyEvent.VK_E);
-        
-        buttonsPanel.add(exitButton);
-        
-        retryButton = new JButton("Retry");
-        retryButton.setVerticalTextPosition(AbstractButton.CENTER);
-        retryButton.setHorizontalTextPosition(AbstractButton.CENTER);
-        retryButton.setMnemonic(KeyEvent.VK_R);
-        
-        buttonsPanel.add(retryButton);
+            retryButton = new JButton("Volver a jugar");
+            retryButton.setVerticalTextPosition(AbstractButton.CENTER);
+            retryButton.setHorizontalTextPosition(AbstractButton.CENTER);
+            retryButton.setMnemonic(KeyEvent.VK_R);
+
+            buttonsPanel.add(retryButton);
+
+            exitButton = new JButton("Acabar");
+            exitButton.setVerticalTextPosition(AbstractButton.CENTER);
+            exitButton.setHorizontalTextPosition(AbstractButton.CENTER);
+            exitButton.setMnemonic(KeyEvent.VK_E);
+
+            buttonsPanel.add(exitButton);
         
         centeredBoxPanel.add(buttonsPanel);
         
