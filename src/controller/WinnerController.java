@@ -22,7 +22,7 @@ public class WinnerController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.view.retryButton) {
-            //this.
+            //new PlayerDataController(, view);
         } else if (ae.getSource() == this.view.exitButton) {
             System.exit(0);
         }
