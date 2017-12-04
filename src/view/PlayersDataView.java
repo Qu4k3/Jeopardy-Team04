@@ -11,6 +11,7 @@ import java.awt.Container;
 import javax.swing.Box;
 import java.awt.Component;
 import java.awt.Dimension;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -43,7 +44,7 @@ public class PlayersDataView extends JFrame{
         this.setResizable(false);
         addComponentsTopane(this.getContentPane());
         this.pack();
-        this.setSize(560, 360);
+        this.setSize(560, 360);       
         this.setVisible(true);
         ImageIcon img = new ImageIcon("img/logo/favicon.ico");
         this.setIconImage(img.getImage());
@@ -107,6 +108,8 @@ public class PlayersDataView extends JFrame{
         startGame.setAlignmentX(Component.CENTER_ALIGNMENT);
         bgColor="#29c42f";
         startGame.setBackground(Color.decode(bgColor));
+        startGame.setBorder(BorderFactory.createLineBorder(Color.decode(bgColor), 5, false));
+        
         centerPanel.add(startGame);
         centerPanel.add(Box.createVerticalStrut(65));
 

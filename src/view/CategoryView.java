@@ -38,6 +38,9 @@ public class CategoryView extends JFrame {
     JLabel playerTwo;
     JLabel imageBallGray1, imageBallGreen1, imageBallGreen2,imageBallGray2,imageBallGray3,imageBallGreen3;
     JPanel panelBallOne;
+    String PathBallGreen = "img/balls/circleGreen.png";
+    String PathBallGray = "img/balls/circleGray.png";
+
     JPanel panelBallTwo;
     String PATH = "img/balls/";
     JButton opContinue;
@@ -96,7 +99,7 @@ public class CategoryView extends JFrame {
         playerTwoInfo.add(playerTwo, BorderLayout.WEST);
         pane.add(playerTwoInfo, BorderLayout.EAST);
         //balls playersTwo
-        imageBallGreen1 = new JLabel(new ImageIcon(PATH + "circleGreen.png"));
+        imageBallGray1 = new JLabel(new ImageIcon(PATH + "circleGreen.png"));
         imageBallGray2 = new JLabel(new ImageIcon(PATH + "circleGray.png"));
         imageBallGray3 = new JLabel(new ImageIcon(PATH + "circleGray.png"));
 
@@ -120,12 +123,17 @@ public class CategoryView extends JFrame {
         //,"Publicos","anime","actores ","Marcas","historia","Geo"
         categorias = new JButton[3][3];
         
+        String bgColor = "#e9e9e9";
+        
         for (int i = 0; i < 3; i++) {
 
             for (int j = 0; j < 3; j++) {
                     categorias[i][j] = new JButton(values[i][j]);
                     categorias[i][j].setPreferredSize(new Dimension(1/3, 5));
+                    categorias[i][j].setBorder(BorderFactory.createLineBorder(Color.black, 2, false));
+                    categorias[i][j].setBackground(Color.decode(bgColor));
                     buttonsPanel.add(categorias[i][j]);
+                    
                     
             }
         }
