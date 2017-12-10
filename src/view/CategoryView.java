@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -32,7 +33,7 @@ public class CategoryView extends JFrame {
     JPanel playerOneInfo;
     JPanel playerTwoInfo;
     JLabel title;
-    JButton[] categorias;
+    JButton[][] categorias;
     JLabel playerOne;
     JLabel playerTwo;
     JLabel imageBallGray1, imageBallGreen1, imageBallGreen2,imageBallGray2,imageBallGray3,imageBallGreen3;
@@ -106,6 +107,33 @@ public class CategoryView extends JFrame {
         
 
         //botones de categorias
+        
+        
+        buttonsPanel = new JPanel(new GridLayout(3,3));
+        buttonsPanel.setBackground(Color.red);
+        String [][] values = {{"Deportes","Personajes Publicos","Codigo"},
+            {"Publicos","anime","actores"},
+             {"Marcas","historia","Geo"}
+        };
+    
+                
+        //,"Publicos","anime","actores ","Marcas","historia","Geo"
+        categorias = new JButton[3][3];
+        
+        for (int i = 0; i < 3; i++) {
+
+            for (int j = 0; j < 3; j++) {
+                    categorias[i][j] = new JButton(values[i][j]);
+                    categorias[i][j].setPreferredSize(new Dimension(1/3, 5));
+                    buttonsPanel.add(categorias[i][j]);
+                    
+            }
+        }
+        
+        
+        //buttonsPanel.setSize(new Dimension(200, 50));
+        pane.add(buttonsPanel);
+        
         
         
     
