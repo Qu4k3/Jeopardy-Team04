@@ -59,7 +59,6 @@ public class BoardView extends JFrame {
 
     void addComponentsToPane(Container contenido) {
 
-        //contenido.setLayout(new BorderLayout(1000, 640));
         contenido.setLayout(new FlowLayout());
         contenido.setBackground(Color.black);
         

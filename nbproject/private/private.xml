@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/view/PlayersDataView.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>71</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/PlayersDataView.java</file>
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/CategoryView.java</file>
-
-
-            <file>file:/C:/Users/paulg/Desktop/Jeopardy-Team04/src/view/WinnerView.java</file>
-            <file>file:/C:/Users/paulg/Desktop/Jeopardy-Team04/src/view/StartView.java</file>
-            <file>file:/C:/Users/paulg/Desktop/Jeopardy-Team04/src/test/Main.java</file>
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/CategoryView.java</file>
-            <file>file:/C:/Users/MichaelJúnior/Desktop/GitHubProyecto/Jeopardy-Team04/src/view/PlayersDataView.java</file>
+            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Jeopardy-Team04/src/controller/BoardController.java</file>
+            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Jeopardy-Team04/src/model/LoadModel.java</file>
+            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Jeopardy-Team04/src/view/BoardView.java</file>
+            <file>file:/C:/Users/Diego/Documents/NetBeansProjects/Jeopardy-Team04/src/test/Main.java</file>
         </group>
     </open-files>
 </project-private>

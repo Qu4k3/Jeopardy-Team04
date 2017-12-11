@@ -1,0 +1,5 @@
+1;¿Cuántos puntos vale un tiro libre encestado en baloncesto?;200;1;2;Depende;1
+2;¿De qué nacionalidad era Pelé?;400;Brasileña;Francesa;Española;2
+3;¿Cuántas medallas consiguió España en los juegos de Río 2016?;600;17;7;9;1 
+4;¿En cuál de estos deportes no existe la selección española?;800;Jai-alai;Futbol;Hurling;3
+5;¿En cuál de los siguientes equipos coincidieron Gerard Piqué y Cristiano Ronaldo?;1000;Girona;Manchester United;Juventus;2

@@ -5,6 +5,7 @@
  */
 package model;
 
+
 /**
  *
  * @author Diego
@@ -13,4 +14,13 @@ public class CategoryModel {
     
     private int idCategory;
     private String name;
+
+    public CategoryModel(int idCategory, String name, QuestionModel[] question) {
+        this.idCategory = idCategory;
+        this.name = name;
+        //this.question = question;
+        //this.CategoryGrup = CategoryGrup;
+    }
+    
+    
 }
