@@ -1,0 +1,5 @@
+1;¿Que sistema operativo usa BlackBerry?;200;Android;BlackBerry OS;Symbian;2
+2;¿Cuál de las siguientes marcas fue denunciada por la venta de dispositivos móviles plagiados?;400;Samsung;Zetta;HTC;2
+3;¿Cuál de estas compañias móviles no existe?;600;Pepephone;Simyo;Yugophone;3
+4;¿Cuál fue la marca de móviles mñas vendida en 2012?;800;Samsung;Apple;Nokia;1
+5;¿Cuál fue el primer SmartPhone en oncorporar lector de huellas dactilares?;1000;Motorola ATRIX;Iphone 5S;Sony Ericsson Xperia Arc;1

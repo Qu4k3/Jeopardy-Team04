@@ -1,0 +1,5 @@
+1;¿Cuál de los siguientes países es el más grande?;200;Francia;Suiza;España;1
+2;¿Cuál es el segundo país con más habitantes de planeta?;400;China;India;Rusia;2
+3;¿En cuántos países la lengua oficial es el español?;600;20;14;16;1
+4;¿Cuál es la capital más al norte del planeta?;800;Oslo;estocolmo;Reikiavik;2
+5;¿Cuál es el río más caudaloso del mundo?;1000;Amazonas;Nilo;Yangtsé;2
