@@ -5,20 +5,114 @@
  */
 package controller;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import model.CategoryModel;
+import model.PlayerModel;
 import view.CategoryView;
 
 /**
  *
  * @author Diego
  */
-public class CategoryController {
-   private view.CategoryView view;
+public class CategoryController implements ActionListener {
 
-    public CategoryController(CategoryView view) {
-        this.view = view;
-        
+    private view.CategoryView view;
+    private PlayerModel JugadorUno, JugadorDos;
+    ArrayList<CategoryModel> listaAllCategories = new ArrayList();
+    ArrayList<CategoryModel> listaSelectedCategories = new ArrayList();
+
+    public CategoryController(CategoryView viewCategory, PlayerModel PlayerOne, PlayerModel PlayerTwo) {
+
+        this.view = viewCategory;
+        this.JugadorUno = PlayerOne;
+        this.JugadorDos = PlayerTwo;
+
+        view.playerOne.setText(PlayerOne.getName());
+        view.playerTwo.setText(PlayerTwo.getName());
+        JOptionPane.showMessageDialog(view, "Cada Jugador debera Seleccionar 3 Categorias.\nEmpieza el Jugador: " + JugadorUno.getName(), "Seleccion de Categorias", 1);
+        //Rellenar listaAllCategories leyendo fichero
+        //actualizar texto view - categoriasButtons con listaAllCategories
+        this.setUpListenerButtons(view);
     }
-   
-    
-    
+
+    private void setUpListenerButtons(CategoryView view) {
+        for (int i = 0; i < view.categoriasButtons.length; i++) {
+
+            for (int j = 0; j < view.categoriasButtons[i].length; j++) {
+                view.categoriasButtons[i][j].addActionListener(this);
+
+            }
+        }
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    int contadorBalls=0;
+        if (listaSelectedCategories.size() < 6) {
+            // a esta casilla cambiale el color de fondo a #e9e9e9 una vez clicada
+            boolean encontrado = false;
+            
+            for (int i = 0; i < view.categoriasButtons.length; i++) {
+
+                for (int j = 0; j < view.categoriasButtons[i].length; j++) {
+                    if (e.getSource() == view.categoriasButtons[i][j]) {
+                        if (JugadorUno.isTurno()==true) {
+                            listaSelectedCategories.add(selectCategoryInAllCategories(view.categoriasButtons[i][j].getText()));
+                            encontrado = true;
+                            view.categoriasButtons[i][j].setEnabled(false);
+                            view.categoriasButtons[i][j].setBackground(Color.red);
+                            contadorBalls= contadorBalls+1;
+                            
+                            
+                            JOptionPane.showMessageDialog(view, "El jugador: " + JugadorUno.getName()+" a seleccionado "
+                                    +view.categoriasButtons[i][j].getText(), "Seleccion de Categorias", 1);
+
+                            JugadorUno.setTurno(false);
+                            break;
+                        } else {
+                            
+                            listaSelectedCategories.add(selectCategoryInAllCategories(view.categoriasButtons[i][j].getText()));
+                            encontrado = true;
+                            view.categoriasButtons[i][j].setEnabled(false);
+                            view.categoriasButtons[i][j].setBackground(Color.red);
+                            JOptionPane.showMessageDialog(view, "El jugador: " + JugadorDos.getName()+" a seleccionado "
+                                    +view.categoriasButtons[i][j].getText(), "Seleccion de Categorias", 1);
+                            JugadorUno.setTurno(true);
+                            
+                            break;
+                        }
+
+                    }
+                }
+                if (encontrado) {
+                    break;
+                }
+            }
+            System.out.println("Categorias seleccionadas: " + listaSelectedCategories.size());
+            
+        } else {
+            System.out.println("Seleccionadas todas las categorias");
+        }
+
+    }
+
+    private CategoryModel selectCategoryInAllCategories(String name) {
+        CategoryModel selectedCategory = null;
+        for (CategoryModel category : listaAllCategories) {
+            if (category.getName().equals(name)) {
+                selectedCategory = category;
+                break;
+            }
+        }
+
+        return selectedCategory;
+    }
 }
+
