@@ -12,39 +12,41 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import model.PlayerModel;
 
 /**
  *
  * @author Diego
  */
 public class CategoryView extends JFrame {
-
+    
     JPanel buttonsPanel;
     JPanel infoPanel;
     JPanel playerOneInfo;
     JPanel playerTwoInfo;
     JLabel title;
-    JButton[][] categorias;
-    JLabel playerOne;
-    JLabel playerTwo;
-    JLabel imageBallGray1, imageBallGreen1, imageBallGreen2,imageBallGray2,imageBallGray3,imageBallGreen3;
+    public JButton[][] categoriasButtons;
+    public JLabel playerOne;
+    public JLabel playerTwo;
+    public JLabel[] imageBallPlayerTwo, imageBallPlayerOne;
     JPanel panelBallOne;
-    String PathBallGreen = "img/balls/circleGreen.png";
-    String PathBallGray = "img/balls/circleGray.png";
-
+    public String PathBallGreen = "img/balls/circleGreen.png";
+    public String PathBallGray = "img/balls/circleGray.png";
+    
     JPanel panelBallTwo;
     String PATH = "img/balls/";
-    JButton opContinue;
-
+    
     public CategoryView() {
         this.setTitle("JeopardyGame! - Seleccion de Categorias");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,13 +58,13 @@ public class CategoryView extends JFrame {
         ImageIcon img = new ImageIcon("img/logo/favicon.ico");
         this.setIconImage(img.getImage());
     }
-
+    
     private void addComponentsTopane(Container pane) {
         // panel info
         infoPanel = new JPanel();
-        
+
         // titulo
-        title = new JLabel("Seleccione 3 categorias");
+        title = new JLabel("Seleccion de Categorias");
         title.setOpaque(true);
         title.setHorizontalAlignment(SwingConstants.CENTER);
         infoPanel.add(title);
@@ -75,76 +77,66 @@ public class CategoryView extends JFrame {
         //panel playerTwo info
         playerTwoInfo = new JPanel();
         playerTwoInfo.setLayout(new BoxLayout(playerTwoInfo, BoxLayout.Y_AXIS));
-        //panel ball one
-        panelBallOne = new JPanel();
-        //panel ball two
-        panelBallTwo = new JPanel();
+
         //info player1
         playerOne = new JLabel("Player1");
         playerOne.setOpaque(true);
+        playerOne.setAlignmentX(CENTER_ALIGNMENT);        
+        
         playerOneInfo.add(playerOne, BorderLayout.LINE_START);
         pane.add(playerOneInfo, BorderLayout.WEST);
         //balls playerOne
-        imageBallGreen1 = new JLabel(new ImageIcon(PATH + "circleGreen.png"));
-        imageBallGray2 = new JLabel(new ImageIcon(PATH + "circleGray.png"));
-        imageBallGray3 = new JLabel(new ImageIcon(PATH + "circleGray.png"));
-
-        panelBallOne.add(imageBallGreen1);
-        panelBallOne.add(imageBallGray2);
-        panelBallOne.add(imageBallGray3);
+        //panel ball one
+        panelBallOne = new JPanel();
+        imageBallPlayerOne = new JLabel[3];
+        String[] valuesBallOne = {PathBallGray, PathBallGray, PathBallGray};
+        for (int i = 0; i < valuesBallOne.length; i++) {
+            imageBallPlayerOne[i] = new JLabel(new ImageIcon(valuesBallOne[i]));
+            panelBallOne.add(imageBallPlayerOne[i]);
+        }
+        
         playerOneInfo.add(panelBallOne);
         //info player2
         playerTwo = new JLabel("Player2");
         playerTwo.setOpaque(true);
-        playerTwoInfo.add(playerTwo, BorderLayout.WEST);
+        playerTwo.setAlignmentX(CENTER_ALIGNMENT);        
+        playerTwoInfo.add(playerTwo);
         pane.add(playerTwoInfo, BorderLayout.EAST);
         //balls playersTwo
-        imageBallGray1 = new JLabel(new ImageIcon(PATH + "circleGreen.png"));
-        imageBallGray2 = new JLabel(new ImageIcon(PATH + "circleGray.png"));
-        imageBallGray3 = new JLabel(new ImageIcon(PATH + "circleGray.png"));
+        //panel ball two
+        panelBallTwo = new JPanel();
+        imageBallPlayerTwo = new JLabel[3];
+        String[] valuesBallTwo = {PathBallGray, PathBallGray, PathBallGray};
+        for (int i = 0; i < valuesBallTwo.length; i++) {
+            imageBallPlayerTwo[i] = new JLabel(new ImageIcon(valuesBallTwo[i]));
+            panelBallTwo.add(imageBallPlayerTwo[i]);
+        }
+        playerTwoInfo.add(panelBallTwo);
 
-        panelBallTwo.add(imageBallGreen1);
-        panelBallTwo.add(imageBallGray2);
-        panelBallTwo.add(imageBallGray3);
-        playerTwoInfo.add(panelBallTwo);       
-        
-
-        //botones de categorias
-        
-        
-        buttonsPanel = new JPanel(new GridLayout(3,3));
+        //botones de categoriasButtons
+        buttonsPanel = new JPanel(new GridLayout(3, 3));
         buttonsPanel.setBackground(Color.red);
-        String [][] values = {{"Deportes","Personajes Publicos","Codigo"},
-            {"Publicos","anime","actores"},
-             {"Marcas","historia","Geo"}
+        String[][] values = {{"Deportes", "Personajes Publicos", "Codigo"},
+        {"Publicos", "anime", "actores"},
+        {"Marcas", "historia", "Geo"}
         };
-    
-                
+
         //,"Publicos","anime","actores ","Marcas","historia","Geo"
-        categorias = new JButton[3][3];
+        categoriasButtons = new JButton[3][3];
         
         String bgColor = "#e9e9e9";
         
-        for (int i = 0; i < 3; i++) {
-
-            for (int j = 0; j < 3; j++) {
-                    categorias[i][j] = new JButton(values[i][j]);
-                    categorias[i][j].setPreferredSize(new Dimension(1/3, 5));
-                    categorias[i][j].setBorder(BorderFactory.createLineBorder(Color.black, 2, false));
-                    categorias[i][j].setBackground(Color.decode(bgColor));
-                    buttonsPanel.add(categorias[i][j]);
-                    
-                    
+        for (int i = 0; i < categoriasButtons.length; i++) {
+            
+            for (int j = 0; j < categoriasButtons[i].length; j++) {
+                categoriasButtons[i][j] = new JButton(values[i][j]);
+                categoriasButtons[i][j].setPreferredSize(new Dimension(1 / 3, 5));
+                categoriasButtons[i][j].setBorder(BorderFactory.createLineBorder(Color.black, 2, false));
+                categoriasButtons[i][j].setBackground(Color.decode(bgColor));
+                buttonsPanel.add(categoriasButtons[i][j]);
             }
         }
-        
-        
         //buttonsPanel.setSize(new Dimension(200, 50));
         pane.add(buttonsPanel);
-        
-        
-        
-    
-
     }
 }
