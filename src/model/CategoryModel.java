@@ -22,5 +22,8 @@ public class CategoryModel {
         //this.CategoryGrup = CategoryGrup;
     }
     
+    public String getName() {
+        return name;
+    }
     
 }
