@@ -14,6 +14,8 @@ public class PlayerModel {
     private String name;
     private int score;
     private int failures;
+    private boolean turno;
+    
 
     public PlayerModel() {
     }
@@ -27,6 +29,13 @@ public class PlayerModel {
 
     public int getScore() {
         return score;
+    }
+     public boolean isTurno() {
+        return turno;
+    }
+
+    public void setTurno(boolean turno) {
+        this.turno = turno;
     }
     
     
