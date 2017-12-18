@@ -20,6 +20,8 @@ public class PlayerDataController implements ActionListener {
 
     private view.PlayersDataView viewData;
     private model.PlayerModel playerModel;
+    PlayerModel PlayerOne;
+    PlayerModel PlayerTwo;
 
     public PlayerDataController(PlayersDataView viewData, PlayerModel modelPlayer) {
         this.playerModel = modelPlayer;
@@ -54,8 +56,8 @@ public class PlayerDataController implements ActionListener {
 
                         } else {
                             
-                            PlayerModel PlayerOne = new PlayerModel(this.viewData.playerOne.getText());
-                            PlayerModel PlayerTwo = new PlayerModel(this.viewData.playerTwo.getText());
+                            PlayerOne = new PlayerModel(this.viewData.playerOne.getText());
+                            PlayerTwo = new PlayerModel(this.viewData.playerTwo.getText());
                             
                             
                             JOptionPane.showMessageDialog(viewData, "Bienvenidos Jugadores: \n PlayerOne: " + viewData.playerOne.getText() + " PlayerTwo: " + viewData.playerTwo.getText(),"Registro Completo",1);

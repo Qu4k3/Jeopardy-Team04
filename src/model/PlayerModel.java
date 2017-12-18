@@ -38,5 +38,8 @@ public class PlayerModel {
         this.turno = turno;
     }
     
-    
+    public int sumaScore(int score){
+        this.score += score;
+        return this.score;
+    }
 }

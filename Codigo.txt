@@ -1,5 +1,5 @@
-1;¿Cuál de los siguientes 'tags' no forman parte de los nuevos elementos de HTML 5?;200;<aside>;<content>;<article>;2
-2;¿Para que se utiliza la regla '@keyframes'?;400;Transición;Rotación;Animación;3
-3;¿Qué devolverá el siguiente código? System.out.prinln((int) Math.pow(2.5,3));600;15;15.625;16;1
-4;Tenemos el siguiente código: $a="10" $b=$a+2 ¿Cuál será el valor de $b?;800;"12";12;"102";2
-5;¿Cuál de los siguientes tipos de comentarios no existe en C#?;1000;///;#;/**/;2
+1;¿Cuál de los siguientes 'tags' no forman parte de los nuevos elementos de HTML 5?;200;<aside>;<content>;<article>;1
+2;¿Para que se utiliza la regla '@keyframes'?;400;Transición;Rotación;Animación;2
+3;¿Qué devolverá el siguiente código? System.out.prinln((int) Math.pow(2.5,3));600;15;15.625;16;0
+4;Tenemos el siguiente código: $a="10" $b=$a+2 ¿Cuál será el valor de $b?;800;"12";12;"102";1
+5;¿Cuál de los siguientes tipos de comentarios no existe en C#?;1000;///;#;/**/;1

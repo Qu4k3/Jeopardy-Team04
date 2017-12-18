@@ -9,19 +9,22 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {       
+    public static void main(String[] args) {    
         
-        StartView startView = new StartView();   
+        //HashMap<String, ArrayList<QuestionModel>> test = LoadModel.CargarDatos();
         
-        //PlayersDataView payersDataView = new PlayersDataView();
+        //StartView startView = new StartView();   
+               //PlayersDataView payersDataView = new PlayersDataView();
         
-        PlayerModel model = new PlayerModel();
-        WinnerView view = new WinnerView();
-        WinnerController controller = new WinnerController(model, view);
+        //PlayerModel model = new PlayerModel();
+        //WinnerView view = new WinnerView();
+        //WinnerController controller = new WinnerController(model, view);
         
         //StartView.startPantallaInicio();
-        // BoardView view = new BoardView();
-        //BoardController controller = new BoardController(view);
+        
+        //BoardView view = new BoardView();
+        //LoadModel model = new LoadModel();
+        //BoardController controller = new BoardController(model, view);
 
         
         //BoardView view = new BoardView();

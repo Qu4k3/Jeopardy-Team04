@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import model.CategoryModel;
 import view.BoardView;
 import model.LoadModel;
 import model.PlayerModel;
@@ -25,160 +25,150 @@ public class BoardController implements ActionListener {
 
     private LoadModel model;
     private BoardView view;
-    private PlayerModel playerModel;
+    private CategoryController categoryController;
+    private PlayerDataController playerController;
+    private PlayerModel j1, j2;
+    private ArrayList<CategoryModel> listaSelectedCategories;
+    
+    
+    PlayerModel currentPlayer = new PlayerModel();
 
-    public BoardController(LoadModel model, BoardView view) {
+    public BoardController(LoadModel model, BoardView view, PlayerModel playerOne, PlayerModel playerTwo, ArrayList<CategoryModel> listaCategorias) {
         this.model = model;
         this.view = view;
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 6; j++) {
-                view.questionsButtons[i][j].addActionListener(this);
-            }
-        }
+        this.j1 = playerOne;
+        this.j2 = playerTwo;
+        this.listaSelectedCategories = listaCategorias;
+        iniciar();
     }
 
     public void round() {
 
-        PlayerModel currentPlayer = new PlayerModel();
-
         if (model.round % 2 == 1) {
 
-            view.player1Panel.setBackground(Color.green);
-            view.player2Panel.setBackground(Color.red);
-            currentPlayer = PlayerModel.j1;
+            view.player1Panel.setBackground(Color.CYAN);
+            view.player2Panel.setBackground(Color.WHITE);
+            currentPlayer = j1;
+            //currentPlayer = playerController.playerOne;
         } else {
 
-            view.player2Panel.setBackground(Color.green);
-            view.player1Panel.setBackground(Color.red);
-            currentPlayer = PlayerModel.j2;
+            view.player2Panel.setBackground(Color.CYAN);
+            view.player1Panel.setBackground(Color.WHITE);
+            currentPlayer = j2;
+            //currentPlayer = playerController.playerTwo;
+
+        }
+        if (model.round >= 20) {
+            finalJoepardyRound();
+        }
+        if (model.round == 30) {
+            ganador();
         }
         model.round++;
+
     }
 
     public void iniciar() {
-        view.player1Name.setText(playerModel.j1.getName());
-        view.player2Name.setText(playerModel.j2.getName());
+        view.player1Name.setText(j1.getName());
+        view.player2Name.setText(j2.getName());
         view.numberRound.setText(Integer.toString(model.round));
+        String category = "";
+        model.CargarDatos();
 
-        for (int i = 0; i < playerModel.listaSelectedCategories.size(); i++) {
-            String auxCategory = playerModel.listaSelectedCategories.get(i);//.getName
-            view.categoryLabel[i].setText(auxCategory);
-            switch (auxCategory) {
+        for (int i = 0; i < view.categoryLabel.length; i++) {
+            category = listaSelectedCategories.get(i).getName();
+            view.categoryLabel[i].setText(category);
+        }
 
-                case "codigo":
-                    model.preguntasCodigo();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasCodigo.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
-                    
-                    break;
+        HashMap<String, ArrayList<QuestionModel>> todasLasPreguntas = model.CargarDatos();
+        QuestionModel auxQuestion;
 
-                case "deportes":
-                    model.preguntasDeportes();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasDeportes.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
+        for (int i = 0; i < 6; i++) {
 
-                    break;
+            category = listaSelectedCategories.get(i).getName();
 
-                case "empresa":
-                    model.preguntasEmpresa();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasEmpresa.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
+            for (int j = 0; j < 5; j++) {
 
-                    break;
+                auxQuestion = todasLasPreguntas.get(category).get(j);
 
-                case "geografia":
-                    model.preguntasGeografia();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasGeografia.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
-                    
-                    break;
+                view.questionsButtons[j][i].setText(Integer.toString(auxQuestion.getValue()));
+                view.questionsButtons[j][i].addActionListener(this);
 
-                case "historia":
-                    model.preguntasHistoria();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasHistoria.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
+            }
 
-                    break;
+        }
+        round();
 
-                case "musica":
-                    model.preguntasMusica();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasMusica.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
+    }
 
-                    break;
+    public void finalJoepardyRound() {
 
-                case "peliculas":
-                    model.preguntasPeliculas();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasPeliculas.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
-                    break;
+        String category = "";
 
-                case "personajesPublicos":
-                    model.preguntasPersonajesPublicos();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasPersonajesPublicos.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
+        HashMap<String, ArrayList<QuestionModel>> todasLasPreguntas = model.CargarDatos();
 
-                    break;
+        QuestionModel auxQuestion;
+        for (int i = 0; i < 6; i++) {
 
-                case "telefonia":
-                    model.preguntasTelefonia();
-                    for (int j = 0; j < view.questionsButtons.length; j++) {
-                        model.auxQuestions = model.listaPreguntasTelefonia.get(j);
-                        view.questionsButtons[i][j].setText(Integer.toString(model.auxQuestions.getValue()));
-                        view.questionsButtons[i][j].addActionListener(this);
-                    }
+            category = listaSelectedCategories.get(i).getName();
 
-                    break;
+            for (int j = 0; j < 5; j++) {
+
+                auxQuestion = todasLasPreguntas.get(category).get(j);
+
+                view.questionsButtons[j][i].setText(Integer.toString(auxQuestion.getValue() * 2));
+
             }
         }
     }
 
     public void actionPerformed(ActionEvent ae) {
 
-        
-        
         view.numberRound.setText(Integer.toString(model.round));
 
-        round();
-        
-        for (int i = 0; i < view.questionsButtons.length; i++) {
+        String category;
+        HashMap<String, ArrayList<QuestionModel>> todasLasPreguntas = model.CargarDatos();
+        QuestionModel auxQuestion;
 
-            for (int j = 0; j < view.questionsButtons[i].length; j++) {
-                if (ae.getSource() == view.questionsButtons[i][j]) {
-                    
-                    JOptionPane.showOptionDialog(view, model.auxQuestions.getName(), "Question title",
-                            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
-                            null, model.listAnswers, model.listAnswers[model.auxQuestions.getCorrecta()]);
+        for (int i = 0; i < 6; i++) {
+            category = listaSelectedCategories.get(i).getName();
+            for (int j = 0; j < 5; j++) {
+
+                if (ae.getSource() == view.questionsButtons[j][i]) {
+
+                    auxQuestion = todasLasPreguntas.get(category).get(j);
+                    String[] listAnswers = auxQuestion.getAnswer();
+
+                    int n = JOptionPane.showOptionDialog(view, auxQuestion.getName(), "Escoge una opción",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                            null, listAnswers, listAnswers[0]);
+
+                    if (n == auxQuestion.getCorrecta()) {
+                        System.out.println(currentPlayer.getName() + " RESPUESTA CORRECTA");
+                        view.questionsButtons[j][i].setBackground(Color.green);
+
+                        if (model.round >= 20) {
+                            currentPlayer.sumaScore(auxQuestion.getValue() * 2);
+                        } else {
+                            currentPlayer.sumaScore(auxQuestion.getValue());
+                        }
+
+                        view.player1Score.setText(Integer.toString(j1.getScore()));
+                        view.player2Score.setText(Integer.toString(j2.getScore()));
+                    } else {
+                        System.out.println(currentPlayer.getName() + " RESPUESTA INCORRECTA");
+                        view.questionsButtons[j][i].setBackground(Color.red);
+                    }
+
+                    view.questionsButtons[j][i].setEnabled(false);
+                    round();
 
                 }
             }
         }
+    }
 
-        model.round++;
+    public void ganador() {
 
     }
 }
