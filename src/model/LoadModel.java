@@ -18,33 +18,26 @@ import java.util.HashMap;
  */
 public class LoadModel {
 
-    //HashMaps
-    public ArrayList<QuestionModel> listaPreguntasCodigo = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasDeportes = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasEmpresa = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasGeografia = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasHistoria = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasMusica = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasPeliculas = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasPersonajesPublicos = new ArrayList();
-    public ArrayList<QuestionModel> listaPreguntasTelefonia = new ArrayList();
-    //public HashMap<Integer, QuestionModel> listaPreguntasCodigo = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasDeportes = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasEmpresa = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasGeografia = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasHistoria = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasMusica = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasPeliculas = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasPersonajesPublicos = null;
-    //public HashMap<Integer, QuestionModel> listaPreguntasTelefonia = null;
-
-    public QuestionModel auxQuestions;
-    public String[] listAnswers = new String[3];
     public int round = 1;
+    public String[] listAnswers = new String[3];
+    public QuestionModel auxQuestions;
 
-    public void preguntasCodigo() {
+    public HashMap<String, ArrayList<QuestionModel>> CargarDatos() {
 
         BufferedReader br = null;
+        QuestionModel auxQuestions;
+        ArrayList<QuestionModel> listaPreguntasCodigo = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasDeportes = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasEmpresa = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasGeografia = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasHistoria = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasMusica = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasPeliculas = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasPersonajesPublicos = new ArrayList();
+        ArrayList<QuestionModel> listaPreguntasTelefonia = new ArrayList();
+        HashMap<String, ArrayList<QuestionModel>> listaTodasPreguntas = new HashMap<>();
+
+        String[] listAnswers;
 
         try {
 
@@ -57,7 +50,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -67,7 +60,11 @@ public class LoadModel {
                         Integer.parseInt(valores[2]), listAnswers, Integer.parseInt(valores[6]));
 
                 listaPreguntasCodigo.add(auxQuestions);
+
+                linea = br.readLine();
             }
+            listaTodasPreguntas.put("codigo", listaPreguntasCodigo);
+            
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -79,11 +76,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasDeportes() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -96,7 +88,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -107,7 +99,10 @@ public class LoadModel {
 
                 listaPreguntasDeportes.add(auxQuestions);
 
+                linea = br.readLine();
             }
+            listaTodasPreguntas.put("deportes", listaPreguntasDeportes);
+            
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -119,11 +114,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasEmpresa() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -136,7 +126,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -147,7 +137,11 @@ public class LoadModel {
 
                 listaPreguntasEmpresa.add(auxQuestions);
 
+                linea = br.readLine();
             }
+
+            listaTodasPreguntas.put("empresa", listaPreguntasEmpresa);
+            
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -159,11 +153,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasGeografia() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -176,7 +165,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -187,7 +176,10 @@ public class LoadModel {
 
                 listaPreguntasGeografia.add(auxQuestions);
 
+                linea = br.readLine();
             }
+            listaTodasPreguntas.put("geografia", listaPreguntasGeografia);
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -199,11 +191,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasHistoria() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -216,7 +203,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -227,7 +214,10 @@ public class LoadModel {
 
                 listaPreguntasHistoria.add(auxQuestions);
 
+                linea = br.readLine();
             }
+            listaTodasPreguntas.put("historia", listaPreguntasHistoria);
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -239,11 +229,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasMusica() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -256,7 +241,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -267,7 +252,10 @@ public class LoadModel {
 
                 listaPreguntasMusica.add(auxQuestions);
 
+                linea = br.readLine();
             }
+            listaTodasPreguntas.put("musica", listaPreguntasMusica);
+            
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -279,11 +267,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasPeliculas() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -296,7 +279,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -307,7 +290,10 @@ public class LoadModel {
 
                 listaPreguntasPeliculas.add(auxQuestions);
 
+                linea = br.readLine();
             }
+            listaTodasPreguntas.put("peliculas", listaPreguntasPeliculas);
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -319,11 +305,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasPersonajesPublicos() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -336,7 +317,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -347,7 +328,11 @@ public class LoadModel {
 
                 listaPreguntasPersonajesPublicos.add(auxQuestions);
 
+                linea = br.readLine();
             }
+
+            listaTodasPreguntas.put("personajesPublicos", listaPreguntasPersonajesPublicos);
+            
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -359,11 +344,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
-    }
-
-    public void preguntasTelefonia() {
-
-        BufferedReader br = null;
 
         try {
 
@@ -376,7 +356,7 @@ public class LoadModel {
 
                 valores = linea.split(";");
 
-                linea = br.readLine();
+                listAnswers = new String[3];
 
                 listAnswers[0] = valores[3];
                 listAnswers[1] = valores[4];
@@ -387,7 +367,11 @@ public class LoadModel {
 
                 listaPreguntasTelefonia.add(auxQuestions);
 
+                linea = br.readLine();
             }
+
+            listaTodasPreguntas.put("telefonia", listaPreguntasTelefonia);
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -399,5 +383,6 @@ public class LoadModel {
                 System.out.println("El archivo no se ha podido abrir");
             }
         }
+        return listaTodasPreguntas;
     }
 }
