@@ -14,11 +14,14 @@ public class Main {
         //HashMap<String, ArrayList<QuestionModel>> test = LoadModel.CargarDatos();
         
         //StartView startView = new StartView();   
-               PlayersDataView payersDataView = new PlayersDataView();
+
+        PlayersDataView payersDataView = new PlayersDataView();
         
         PlayerModel model = new PlayerModel();
         
         PlayerDataController controller = new PlayerDataController(payersDataView, model);
+         
+        
         //WinnerView view = new WinnerView();
         //WinnerController controller = new WinnerController(model, view);
         
