@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import model.CategoryModel;
 import view.BoardView;
 import model.LoadModel;
 import model.PlayerModel;
@@ -28,17 +27,16 @@ public class BoardController implements ActionListener {
     private CategoryController categoryController;
     private PlayerDataController playerController;
     private PlayerModel j1, j2;
-    private ArrayList<CategoryModel> listaSelectedCategories;
-    
+    private ArrayList<String> listaSelectedCategories;
     
     PlayerModel currentPlayer = new PlayerModel();
 
-    public BoardController(LoadModel model, BoardView view, PlayerModel playerOne, PlayerModel playerTwo, ArrayList<CategoryModel> listaCategorias) {
+    public BoardController(LoadModel model, BoardView view, PlayerModel playerOne, PlayerModel playerTwo, ArrayList<String> listaSelectedCategories) {
         this.model = model;
         this.view = view;
         this.j1 = playerOne;
         this.j2 = playerTwo;
-        this.listaSelectedCategories = listaCategorias;
+        this.listaSelectedCategories = listaSelectedCategories;
         iniciar();
     }
 
@@ -76,7 +74,7 @@ public class BoardController implements ActionListener {
         model.CargarDatos();
 
         for (int i = 0; i < view.categoryLabel.length; i++) {
-            category = listaSelectedCategories.get(i).getName();
+            category = listaSelectedCategories.get(i);
             view.categoryLabel[i].setText(category);
         }
 
@@ -85,7 +83,7 @@ public class BoardController implements ActionListener {
 
         for (int i = 0; i < 6; i++) {
 
-            category = listaSelectedCategories.get(i).getName();
+            category = listaSelectedCategories.get(i);
 
             for (int j = 0; j < 5; j++) {
 
@@ -110,7 +108,7 @@ public class BoardController implements ActionListener {
         QuestionModel auxQuestion;
         for (int i = 0; i < 6; i++) {
 
-            category = listaSelectedCategories.get(i).getName();
+            category = listaSelectedCategories.get(i);
 
             for (int j = 0; j < 5; j++) {
 
@@ -131,7 +129,7 @@ public class BoardController implements ActionListener {
         QuestionModel auxQuestion;
 
         for (int i = 0; i < 6; i++) {
-            category = listaSelectedCategories.get(i).getName();
+            category = listaSelectedCategories.get(i);
             for (int j = 0; j < 5; j++) {
 
                 if (ae.getSource() == view.questionsButtons[j][i]) {
