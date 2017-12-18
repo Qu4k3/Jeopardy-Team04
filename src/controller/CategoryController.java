@@ -13,7 +13,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import model.CategoryModel;
+import model.LoadModel;
 import model.PlayerModel;
+import view.BoardView;
 import view.CategoryView;
 
 /**
@@ -117,6 +119,9 @@ public class CategoryController implements ActionListener {
             
             JOptionPane.showMessageDialog(view, "Categorias seleccionadas ","Registro Completo",1);
             
+            LoadModel loadmodel = new LoadModel();
+            BoardView boarview = new BoardView();
+            BoardController board = new BoardController(loadmodel, boarview, JugadorUno, JugadorDos, listaSelectedCategories);
 
             
         }
