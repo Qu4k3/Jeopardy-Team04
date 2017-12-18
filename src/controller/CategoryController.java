@@ -26,6 +26,8 @@ public class CategoryController implements ActionListener {
     private PlayerModel JugadorUno, JugadorDos;
     ArrayList<CategoryModel> listaAllCategories = new ArrayList();
     ArrayList<CategoryModel> listaSelectedCategories = new ArrayList();
+     static int contadorBallsPlayer1 = 0;
+     static int contadorBallsPlayer2 =0;
 
     public CategoryController(CategoryView viewCategory, PlayerModel PlayerOne, PlayerModel PlayerTwo) {
 
@@ -35,7 +37,7 @@ public class CategoryController implements ActionListener {
 
         view.playerOne.setText(PlayerOne.getName());
         view.playerTwo.setText(PlayerTwo.getName());
-        JOptionPane.showMessageDialog(view, "Cada Jugador debera Seleccionar 3 Categorias.\nEmpieza el Jugador: " + JugadorUno.getName(), "Seleccion de Categorias", 1);
+        JOptionPane.showMessageDialog(view, "Cada Jugador debera Seleccionar 3 Categorias.\nEmpieza el Jugador: " + JugadorDos.getName(), "Seleccion de Categorias", 1);
         //Rellenar listaAllCategories leyendo fichero
         //actualizar texto view - categoriasButtons con listaAllCategories
         this.setUpListenerButtons(view);
@@ -54,7 +56,7 @@ public class CategoryController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    int contadorBalls=0;
+    
         if (listaSelectedCategories.size() < 6) {
             // a esta casilla cambiale el color de fondo a #e9e9e9 una vez clicada
             boolean encontrado = false;
@@ -68,22 +70,29 @@ public class CategoryController implements ActionListener {
                             encontrado = true;
                             view.categoriasButtons[i][j].setEnabled(false);
                             view.categoriasButtons[i][j].setBackground(Color.red);
-                            contadorBalls= contadorBalls+1;
+                            
                             
                             
                             JOptionPane.showMessageDialog(view, "El jugador: " + JugadorUno.getName()+" a seleccionado "
                                     +view.categoriasButtons[i][j].getText(), "Seleccion de Categorias", 1);
-
+                            
+                            
+                         view.imageBallPlayerOne[contadorBallsPlayer1].setIcon(new ImageIcon(view.PathBallGreen));
+                            
+                            contadorBallsPlayer1 = contadorBallsPlayer1+1;
                             JugadorUno.setTurno(false);
                             break;
-                        } else {
-                            
+                        } else {                           
                             listaSelectedCategories.add(selectCategoryInAllCategories(view.categoriasButtons[i][j].getText()));
                             encontrado = true;
                             view.categoriasButtons[i][j].setEnabled(false);
                             view.categoriasButtons[i][j].setBackground(Color.red);
                             JOptionPane.showMessageDialog(view, "El jugador: " + JugadorDos.getName()+" a seleccionado "
                                     +view.categoriasButtons[i][j].getText(), "Seleccion de Categorias", 1);
+                            
+                            view.imageBallPlayerTwo[contadorBallsPlayer2].setIcon(new ImageIcon(view.PathBallGreen));
+                            
+                            contadorBallsPlayer2 = contadorBallsPlayer2+1;
                             JugadorUno.setTurno(true);
                             
                             break;
@@ -97,12 +106,23 @@ public class CategoryController implements ActionListener {
             }
             System.out.println("Categorias seleccionadas: " + listaSelectedCategories.size());
             
-        } else {
-            System.out.println("Seleccionadas todas las categorias");
+        } else if(listaSelectedCategories.size()==6) {
+            for (int i = 0; i < view.categoriasButtons.length; i++) {
+                for (int j = 0; j < view.categoriasButtons[i].length; j++) {
+                view.categoriasButtons[i][j].setEnabled(false);
+                    
+                }
+            }
+                
+            
+            JOptionPane.showMessageDialog(view, "Categorias seleccionadas ","Registro Completo",1);
+            
+
+            
         }
 
     }
-
+     
     private CategoryModel selectCategoryInAllCategories(String name) {
         CategoryModel selectedCategory = null;
         for (CategoryModel category : listaAllCategories) {
