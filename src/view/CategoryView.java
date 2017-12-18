@@ -116,9 +116,9 @@ public class CategoryView extends JFrame {
         //botones de categoriasButtons
         buttonsPanel = new JPanel(new GridLayout(3, 3));
         buttonsPanel.setBackground(Color.red);
-        String[][] values = {{"Deportes", "Personajes Publicos", "Codigo"},
-        {"Publicos", "anime", "actores"},
-        {"Marcas", "historia", "Geo"}
+        String[][] values = {{"deportes", "personajesPublicos", "codigo"},
+        {"empresa", "peliculas", "musica"},
+        {"telefonia", "historia", "geografia"}
         };
 
         //,"Publicos","anime","actores ","Marcas","historia","Geo"
