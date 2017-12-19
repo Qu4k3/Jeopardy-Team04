@@ -6,7 +6,6 @@ public class AnswerModel {
     private int correcta;
 
     public AnswerModel(String name, int correcta) {
-
         this.name = name;
         this.correcta = correcta;
     }
