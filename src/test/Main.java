@@ -19,7 +19,6 @@ public class Main {
 
         //WinnerView view = new WinnerView();
         //WinnerController controller = new WinnerController(model, view);
-        //StartView.startPantallaInicio();
         //BoardView view = new BoardView();
         //LoadModel model = new LoadModel();
         //BoardController controller = new BoardController(model, view);

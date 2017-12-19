@@ -11,8 +11,21 @@ public class WinnerController implements ActionListener {
     private WinnerView view;
 
     public WinnerController(WinnerView view, PlayerModel j1, PlayerModel j2) {
+
         this.model = model;
         this.view = view;
+
+        //Set view data
+        this.view.player1.setText("Enhorabuena, " + "player_name!");
+
+        this.view.player1.setText("player1_name");
+        this.view.player2.setText("player2_name");
+
+        this.view.wallet1.setText("$200");
+        this.view.wallet2.setText("$500");
+
+        this.view.mistakes1.setText("7");
+        this.view.mistakes2.setText("5");
 
         //Set view data
         this.view.player1.setText("Enhorabuena, " + "player_name!");

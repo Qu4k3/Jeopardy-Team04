@@ -20,7 +20,7 @@ public class BoardController implements ActionListener {
     private PlayerDataController playerController;
     private PlayerModel j1, j2;
     private ArrayList<String> listaSelectedCategories;
-    
+
     PlayerModel currentPlayer = new PlayerModel();
 
     public BoardController(LoadModel model, BoardView view, PlayerModel playerOne, PlayerModel playerTwo, ArrayList<String> listaSelectedCategories) {
