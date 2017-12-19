@@ -1,40 +1,31 @@
-
 package test;
 
-import view.BoardView;
-import view.CategoryView;
-import view.PlayersDataView;
-import view.StartView;
-import view.WinnerView;
+import view.*;
+import model.*;
+import controller.*;
 
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
-        //StartView.startPantallaInicio();         
-        
-        
-        //StartView view = new StartView(); 
-        WinnerView view = new WinnerView();
+        //HashMap<String, ArrayList<QuestionModel>> test = LoadModel.CargarDatos();
+        StartView startView = new StartView();
 
+        PlayersDataView payersDataView = new PlayersDataView();
 
-        //StartView.startPantallaInicio();        
+        PlayerModel model = new PlayerModel();
 
+        PlayerDataController controller = new PlayerDataController(payersDataView, model);
 
-
-        PlayersDataView view = new PlayersDataView();
-
-        
-        //StartView.startPantallaInicio();
-        BoardView view = new BoardView();
-        //BoardController controller = new BoardController(view);
-
-        
-        BoardView view = new BoardView();
-/*       PlayersDataView view = new PlayersDataView(); *///CategoryView view = new CategoryView();
+        //WinnerView view = new WinnerView();
+        //WinnerController controller = new WinnerController(model, view);
+        //
+        //BoardView view = new BoardView();
+        //LoadModel model = new LoadModel();
+        //BoardController controller = new BoardController(model, view);
+        //BoardView view = new BoardView();
+        //PlayersDataView view = new PlayersDataView(); 
+        //CategoryView view = new CategoryView();
     }
 
 }

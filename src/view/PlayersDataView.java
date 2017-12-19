@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
-import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import java.awt.Component;
-import java.awt.Font;
+import java.awt.Dimension;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,26 +14,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-/**
- *
- * @author Diego
- */
+
 public class PlayersDataView extends JFrame {
 
-    JTextField playerOne, playerTwo;
-    JLabel tittleView;
-    JButton startGame;
+    public JTextField playerOne, playerTwo;
+    public JLabel tittleView;
+    public JButton startGame, ButtonPrueba;
+    JLabel labelPlayerOne, labelPlayerTwo;
     BorderLayout principalLayout;
+    JLabel prueba;
+    String bgColor;
     JPanel playersPanel;
     JPanel centerPanel;
+    ImageIcon image, imagePrueba;
+    JPanel playerPanelOne, playerPanelTwo;
 
     public PlayersDataView() {
         this.setTitle("JeopardyGame! - Ingreso de Players");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         addComponentsTopane(this.getContentPane());
-        
         this.pack();
         this.setSize(560, 360);
         this.setVisible(true);
@@ -57,32 +51,59 @@ public class PlayersDataView extends JFrame {
         tittleView.setAlignmentX(Component.CENTER_ALIGNMENT);
         tittleView.setOpaque(true);
         //tittleView.setBorder(BorderFactory.createEmptyBorder(15, 10, 10, 15));
+
         centerPanel.add(tittleView);
 //        pane.add(centerPanel);
-       centerPanel.add(Box.createVerticalStrut(70));
+        centerPanel.add(Box.createVerticalStrut(70));
         // playersPanel
         playersPanel = new JPanel();
+        //Panel player One
+        playerPanelOne = new JPanel();
+        playerPanelOne.setLayout(new BoxLayout(playerPanelOne, BoxLayout.Y_AXIS));
+        //labell player1
+        labelPlayerOne = new JLabel();
+        labelPlayerOne.setText("Player One");
+        labelPlayerOne.setAlignmentX(Component.CENTER_ALIGNMENT);
+        playerPanelOne.add(labelPlayerOne);
+        playerPanelOne.add(Box.createVerticalStrut(10));
         //textField Player1
         playerOne = new JTextField(10);
         playerOne.setOpaque(true);
-        playersPanel.add(playerOne);
+        playerPanelOne.add(playerOne);
+        playersPanel.add(playerPanelOne);
+        //panel player Two
+        playerPanelTwo = new JPanel();
+        playerPanelTwo.setLayout(new BoxLayout(playerPanelTwo, BoxLayout.Y_AXIS));
+        //label player2 
+        labelPlayerTwo = new JLabel();
+        labelPlayerTwo.setText("Player Two");
+        labelPlayerTwo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        playerPanelTwo.add(labelPlayerTwo);
+        playerPanelTwo.add(Box.createVerticalStrut(10));
+
         //textField Player1
         playerTwo = new JTextField(10);
         playerTwo.setOpaque(true);
-        playersPanel.add(playerTwo);
+        playerPanelTwo.add(playerTwo);
+        playersPanel.add(playerPanelTwo);
 
         //playersPanel.setBorder(BorderFactory.createEmptyBorder(15, 10, 10, 15));
         centerPanel.add(playersPanel);
+        //prueba
+
         //buton
         startGame = new JButton();
         startGame.setText("Start Game");
         startGame.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bgColor = "#29c42f";
+        startGame.setBackground(Color.decode(bgColor));
+        startGame.setBorder(BorderFactory.createLineBorder(Color.decode(bgColor), 5, false));
 
         centerPanel.add(startGame);
-               centerPanel.add(Box.createVerticalStrut(65));
+        centerPanel.add(Box.createVerticalStrut(65));
 
         pane.add(centerPanel);
+
     }
 
 }
-

@@ -1,0 +1,5 @@
+1;¿Qué compositor siguió su carrera después de quedarse sordo?;200;Mozart;Bach;Beethoven;2
+2;¿Cuál es la máxima certificación por el número de ventas de un disco?;400;Disco de diamante;Disco de Platino; disco de Uranio;2
+3;¿Cuál de estos fue un álbum de los Beatles?;600;Revolver;Candlestick;Lead Piping;0
+4;¿Cuál es el disco que más se ha vendido en todo el mundo?;800;Black in Black de AC/DC;Thriller de Michael Jackson;Nevermind de Nirvana;1
+5;¿Cuál de los siguientes instrumentos es el que tiene un sonido más grave?;1000;Piano de cola;octabajo;contrabajo;1

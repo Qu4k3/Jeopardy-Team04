@@ -1,0 +1,5 @@
+1;¿Como se llama el fundador principal de Facebook?;200;Larry Zuckerberg;Jeff Bezos;Mark Zuckerberg;2
+2;¿Qué actor ha participado en más películas?;400;Christopher Lee;Samuel L. Jackson;Mickey Rooney;0
+3;¿Cuál de estas actrices es la actual pareja de Enrique de Inglaterra?;600;Keira Knigley;Meghan Markle;Lily Collins;1
+4;¿Cuál de estos actores o actrices es el que más tiempo a participado en la misma serie?;800;Fernando Tejero;Daniel Radcliffer; Mariska Hargitay;2
+5;¿Quién fue el primer presentador de Jeopardy?;1000;Art Fleming;Alex Trebek;Merv Griffin;0

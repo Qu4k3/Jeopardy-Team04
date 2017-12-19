@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.awt.Color;
@@ -16,14 +11,11 @@ import model.CategoryModel;
 import model.PlayerModel;
 import view.CategoryView;
 
-/**
- *
- * @author Diego
- */
 public class CategoryController implements ActionListener {
 
     private view.CategoryView view;
     private PlayerModel JugadorUno, JugadorDos;
+  
     ArrayList<CategoryModel> listaAllCategories = new ArrayList();
     ArrayList<CategoryModel> listaSelectedCategories = new ArrayList();
      static int contadorBallsPlayer1 = 0;
@@ -44,6 +36,7 @@ public class CategoryController implements ActionListener {
     }
 
     private void setUpListenerButtons(CategoryView view) {
+
         for (int i = 0; i < view.categoriasButtons.length; i++) {
 
             for (int j = 0; j < view.categoriasButtons[i].length; j++) {
@@ -56,15 +49,17 @@ public class CategoryController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
     
         if (listaSelectedCategories.size() < 6) {
             // a esta casilla cambiale el color de fondo a #e9e9e9 una vez clicada
             boolean encontrado = false;
-            
+
             for (int i = 0; i < view.categoriasButtons.length; i++) {
 
                 for (int j = 0; j < view.categoriasButtons[i].length; j++) {
                     if (e.getSource() == view.categoriasButtons[i][j]) {
+                      
                         if (JugadorUno.isTurno()==true) {
                             listaSelectedCategories.add(selectCategoryInAllCategories(view.categoriasButtons[i][j].getText()));
                             encontrado = true;
@@ -94,7 +89,7 @@ public class CategoryController implements ActionListener {
                             
                             contadorBallsPlayer2 = contadorBallsPlayer2+1;
                             JugadorUno.setTurno(true);
-                            
+
                             break;
                         }
 
@@ -133,6 +128,7 @@ public class CategoryController implements ActionListener {
         }
 
         return selectedCategory;
+
     }
 }
 
