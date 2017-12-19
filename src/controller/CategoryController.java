@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.awt.Color;
@@ -16,10 +11,6 @@ import model.PlayerModel;
 import view.BoardView;
 import view.CategoryView;
 
-/**
- *
- * @author Diego
- */
 public class CategoryController implements ActionListener {
 
     private view.CategoryView view;
@@ -73,7 +64,6 @@ public class CategoryController implements ActionListener {
                             view.categoriasButtons[i][j].setEnabled(false);
                             view.categoriasButtons[i][j].setBackground(Color.red);
 
-
                             JOptionPane.showMessageDialog(view, "El jugador: " + JugadorUno.getName() + " a seleccionado "
                                     + view.categoriasButtons[i][j].getText(), "Seleccion de Categorias", 1);
 
@@ -93,7 +83,7 @@ public class CategoryController implements ActionListener {
                             view.imageBallPlayerTwo[contadorBallsPlayer2].setIcon(new ImageIcon(view.PathBallGreen));
 
                             contadorBallsPlayer2 = contadorBallsPlayer2 + 1;
-                          
+
                             JugadorUno.setTurno(true);
 
                             break;
@@ -106,23 +96,21 @@ public class CategoryController implements ActionListener {
                 }
             }
             System.out.println("Categorias seleccionadas: " + listaSelectedCategories.size());
-  
-        } else if(listaSelectedCategories.size()==6) {
+
+        } else if (listaSelectedCategories.size() == 6) {
             for (int i = 0; i < view.categoriasButtons.length; i++) {
                 for (int j = 0; j < view.categoriasButtons[i].length; j++) {
-                view.categoriasButtons[i][j].setEnabled(false);
-                    
+                    view.categoriasButtons[i][j].setEnabled(false);
+
                 }
             }
-                
-            
-            JOptionPane.showMessageDialog(view, "Categorias seleccionadas ","Registro Completo",1);
-            
+
+            JOptionPane.showMessageDialog(view, "Categorias seleccionadas ", "Registro Completo", 1);
+
             LoadModel loadmodel = new LoadModel();
             BoardView boarview = new BoardView();
             BoardController board = new BoardController(loadmodel, boarview, JugadorUno, JugadorDos, listaSelectedCategories);
 
-            
         }
 
     }

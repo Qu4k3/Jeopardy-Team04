@@ -6,14 +6,11 @@ import controller.*;
 
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {    
         
         //HashMap<String, ArrayList<QuestionModel>> test = LoadModel.CargarDatos();
         
-        //StartView startView = new StartView();   
+        StartView startView = new StartView();   
 
         PlayersDataView payersDataView = new PlayersDataView();
         
