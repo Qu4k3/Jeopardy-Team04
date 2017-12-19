@@ -159,7 +159,7 @@ public class BoardController implements ActionListener {
     }
 
     public void ganador() {
-        WinnerView winnerView = new WinnerView();
-        WinnerController winnerController = new WinnerController(winnerView,j1,j2);
+        /*WinnerView winnerView = new WinnerView();
+        WinnerController winnerController = new WinnerController(winnerView,j1,j2);*/
     }
 }
