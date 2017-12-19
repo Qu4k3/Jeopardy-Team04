@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 public class WinnerView extends JFrame {
     
-    public static JLabel title, player, wallet, mistakes, logo;
+    public static JLabel winner, player1, player2, wallet1, wallet2, mistakes1, mistakes2, logo;
     public static JPanel centeredBoxPanel, middlePanel, buttonsPanel, playerInfo, player2Info;
     public static JButton exitButton, retryButton;
     
@@ -43,10 +43,10 @@ public class WinnerView extends JFrame {
         // espaciado
         centeredBoxPanel.add(Box.createVerticalStrut(40));
         
-        title = new JLabel("Enhorabuena, player_name!");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        title.setFont(title.getFont().deriveFont(16.0f));
-        centeredBoxPanel.add(title);
+        winner = new JLabel();
+        winner.setAlignmentX(Component.CENTER_ALIGNMENT);
+        winner.setFont(winner.getFont().deriveFont(16.0f));
+        centeredBoxPanel.add(winner);
         
         // espaciado
         centeredBoxPanel.add(Box.createVerticalStrut(30));        
@@ -56,20 +56,20 @@ public class WinnerView extends JFrame {
             playerInfo = new JPanel();
             playerInfo.setLayout(new BoxLayout(playerInfo, BoxLayout.Y_AXIS));
                                             
-                player = new JLabel("Player 1");
-                player.setAlignmentX(Component.CENTER_ALIGNMENT);
-                player.setFont(player.getFont().deriveFont(16.0f));
-                playerInfo.add(player);
+                player1 = new JLabel();
+                player1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                player1.setFont(player1.getFont().deriveFont(16.0f));
+                playerInfo.add(player1);
 
-                wallet = new JLabel("$200");
-                wallet.setAlignmentX(Component.CENTER_ALIGNMENT);
-                wallet.setFont(wallet.getFont().deriveFont(16.0f));
-                playerInfo.add(wallet);
+                wallet1 = new JLabel();
+                wallet1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                wallet1.setFont(wallet1.getFont().deriveFont(16.0f));
+                playerInfo.add(wallet1);
 
-                mistakes = new JLabel("F: 9");
-                mistakes.setAlignmentX(Component.CENTER_ALIGNMENT);
-                mistakes.setFont(mistakes.getFont().deriveFont(16.0f));
-                playerInfo.add(mistakes);
+                mistakes1 = new JLabel();
+                mistakes1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                mistakes1.setFont(mistakes1.getFont().deriveFont(16.0f));
+                playerInfo.add(mistakes1);
                 
                 playerInfo.setBorder(new EmptyBorder(20, 20, 20, 20));
                 
@@ -85,20 +85,20 @@ public class WinnerView extends JFrame {
                 
             player2Info = new JPanel();
             player2Info.setLayout(new BoxLayout(player2Info, BoxLayout.Y_AXIS));
-                player = new JLabel("Player 2");
-                player.setAlignmentX(Component.CENTER_ALIGNMENT);
-                player.setFont(player.getFont().deriveFont(16.0f));
-                player2Info.add(player);
+                player2 = new JLabel();
+                player2.setAlignmentX(Component.CENTER_ALIGNMENT);
+                player2.setFont(player2.getFont().deriveFont(16.0f));
+                player2Info.add(player2);
 
-                wallet = new JLabel("$800");
-                wallet.setAlignmentX(Component.CENTER_ALIGNMENT);
-                wallet.setFont(wallet.getFont().deriveFont(16.0f));
-                player2Info.add(wallet);
+                wallet2 = new JLabel();
+                wallet2.setAlignmentX(Component.CENTER_ALIGNMENT);
+                wallet2.setFont(wallet2.getFont().deriveFont(16.0f));
+                player2Info.add(wallet2);
 
-                mistakes = new JLabel("F: 5");
-                mistakes.setAlignmentX(Component.CENTER_ALIGNMENT);
-                mistakes.setFont(mistakes.getFont().deriveFont(16.0f));
-                player2Info.add(mistakes);
+                mistakes2 = new JLabel();
+                mistakes2.setAlignmentX(Component.CENTER_ALIGNMENT);
+                mistakes2.setFont(mistakes2.getFont().deriveFont(16.0f));
+                player2Info.add(mistakes2);
                 
                 player2Info.setBorder(new EmptyBorder(20, 20, 20, 20));
                 
@@ -115,14 +115,14 @@ public class WinnerView extends JFrame {
             retryButton = new JButton("Volver a jugar");
             retryButton.setVerticalTextPosition(AbstractButton.CENTER);
             retryButton.setHorizontalTextPosition(AbstractButton.CENTER);
-            retryButton.setMnemonic(KeyEvent.VK_R);
+            retryButton.setMnemonic(KeyEvent.VK_V );
 
             buttonsPanel.add(retryButton);
 
             exitButton = new JButton("Acabar");
             exitButton.setVerticalTextPosition(AbstractButton.CENTER);
             exitButton.setHorizontalTextPosition(AbstractButton.CENTER);
-            exitButton.setMnemonic(KeyEvent.VK_E);
+            exitButton.setMnemonic(KeyEvent.VK_A);
 
             buttonsPanel.add(exitButton);
         
@@ -130,7 +130,6 @@ public class WinnerView extends JFrame {
         
         // espaciado
         centeredBoxPanel.add(Box.createVerticalStrut(30));
-
         
         pane.add(centeredBoxPanel);
         
