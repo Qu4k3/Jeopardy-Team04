@@ -10,6 +10,7 @@ import view.BoardView;
 import model.LoadModel;
 import model.PlayerModel;
 import model.QuestionModel;
+import view.WinnerView;
 
 public class BoardController implements ActionListener {
 
@@ -158,6 +159,7 @@ public class BoardController implements ActionListener {
     }
 
     public void ganador() {
-
+        /*WinnerView winnerView = new WinnerView();
+        WinnerController winnerController = new WinnerController(winnerView,j1,j2);*/
     }
 }
