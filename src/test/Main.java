@@ -13,7 +13,7 @@ public class Main {
         
         //HashMap<String, ArrayList<QuestionModel>> test = LoadModel.CargarDatos();
         
-        //StartView startView = new StartView();   
+        StartView startView = new StartView();   
 
         PlayersDataView payersDataView = new PlayersDataView();
         
