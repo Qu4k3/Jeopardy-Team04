@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.BorderLayout;
@@ -25,12 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import model.PlayerModel;
 
-/**
- *
- * @author Diego
- */
 public class CategoryView extends JFrame {
-    
+
     JPanel buttonsPanel;
     JPanel infoPanel;
     JPanel playerOneInfo;
@@ -43,10 +34,10 @@ public class CategoryView extends JFrame {
     JPanel panelBallOne;
     public String PathBallGreen = "img/balls/circleGreen.png";
     public String PathBallGray = "img/balls/circleGray.png";
-    
+
     JPanel panelBallTwo;
     String PATH = "img/balls/";
-    
+
     public CategoryView() {
         this.setTitle("JeopardyGame! - Seleccion de Categorias");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,7 +49,7 @@ public class CategoryView extends JFrame {
         ImageIcon img = new ImageIcon("img/logo/favicon.ico");
         this.setIconImage(img.getImage());
     }
-    
+
     private void addComponentsTopane(Container pane) {
         // panel info
         infoPanel = new JPanel();
@@ -81,8 +72,8 @@ public class CategoryView extends JFrame {
         //info player1
         playerOne = new JLabel("Player1");
         playerOne.setOpaque(true);
-        playerOne.setAlignmentX(CENTER_ALIGNMENT);        
-        
+        playerOne.setAlignmentX(CENTER_ALIGNMENT);
+
         playerOneInfo.add(playerOne, BorderLayout.LINE_START);
         pane.add(playerOneInfo, BorderLayout.WEST);
         //balls playerOne
@@ -94,12 +85,12 @@ public class CategoryView extends JFrame {
             imageBallPlayerOne[i] = new JLabel(new ImageIcon(valuesBallOne[i]));
             panelBallOne.add(imageBallPlayerOne[i]);
         }
-        
+
         playerOneInfo.add(panelBallOne);
         //info player2
         playerTwo = new JLabel("Player2");
         playerTwo.setOpaque(true);
-        playerTwo.setAlignmentX(CENTER_ALIGNMENT);        
+        playerTwo.setAlignmentX(CENTER_ALIGNMENT);
         playerTwoInfo.add(playerTwo);
         pane.add(playerTwoInfo, BorderLayout.EAST);
         //balls playersTwo
@@ -123,11 +114,11 @@ public class CategoryView extends JFrame {
 
         //,"Publicos","anime","actores ","Marcas","historia","Geo"
         categoriasButtons = new JButton[3][3];
-        
+
         String bgColor = "#e9e9e9";
-        
+
         for (int i = 0; i < categoriasButtons.length; i++) {
-            
+
             for (int j = 0; j < categoriasButtons[i].length; j++) {
                 categoriasButtons[i][j] = new JButton(values[i][j]);
                 categoriasButtons[i][j].setPreferredSize(new Dimension(1 / 3, 5));

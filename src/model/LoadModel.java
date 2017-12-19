@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.BufferedReader;
@@ -12,10 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author Diego
- */
 public class LoadModel {
 
     public int round = 1;
@@ -64,7 +55,7 @@ public class LoadModel {
                 linea = br.readLine();
             }
             listaTodasPreguntas.put("codigo", listaPreguntasCodigo);
-            
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -102,7 +93,7 @@ public class LoadModel {
                 linea = br.readLine();
             }
             listaTodasPreguntas.put("deportes", listaPreguntasDeportes);
-            
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -141,7 +132,7 @@ public class LoadModel {
             }
 
             listaTodasPreguntas.put("empresa", listaPreguntasEmpresa);
-            
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -255,7 +246,7 @@ public class LoadModel {
                 linea = br.readLine();
             }
             listaTodasPreguntas.put("musica", listaPreguntasMusica);
-            
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {
@@ -332,7 +323,7 @@ public class LoadModel {
             }
 
             listaTodasPreguntas.put("personajesPublicos", listaPreguntasPersonajesPublicos);
-            
+
         } catch (FileNotFoundException fnfe) {
             System.out.println("No se encontro el archivo");
         } catch (IOException e) {

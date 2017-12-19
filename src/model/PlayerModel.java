@@ -1,7 +1,7 @@
 package model;
 
 public class PlayerModel {
-    
+
     private String name;
     private int score;
     private int failures;
@@ -9,6 +9,7 @@ public class PlayerModel {
 
     public PlayerModel() {
     }
+
     public PlayerModel(String name) {
         this.name = name;
     }
@@ -20,17 +21,17 @@ public class PlayerModel {
     public int getScore() {
         return score;
     }
-     public boolean isTurno() {
+
+    public boolean isTurno() {
         return turno;
     }
 
     public void setTurno(boolean turno) {
         this.turno = turno;
     }
-    
-    public int sumaScore(int score){
+
+    public int sumaScore(int score) {
         this.score += score;
         return this.score;
     }
 }
-
