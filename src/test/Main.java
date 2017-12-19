@@ -6,11 +6,10 @@ import controller.*;
 
 public class Main {
 
-    public static void main(String[] args) {    
-        
+    public static void main(String[] args) {
+
         //HashMap<String, ArrayList<QuestionModel>> test = LoadModel.CargarDatos();
-        
-        StartView startView = new StartView();   
+        StartView startView = new StartView();
 
         PlayersDataView payersDataView = new PlayersDataView();
 
@@ -20,7 +19,6 @@ public class Main {
 
         //WinnerView view = new WinnerView();
         //WinnerController controller = new WinnerController(model, view);
-        //
         //BoardView view = new BoardView();
         //LoadModel model = new LoadModel();
         //BoardController controller = new BoardController(model, view);
