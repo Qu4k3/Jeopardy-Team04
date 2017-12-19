@@ -1,0 +1,5 @@
+1;¿Cuál de estas empresas no pertenece a facebook?;200;Youtube;Instagram;Whatsapp;0
+2;¿Cuál de estas empresas no tiene su sede en Silicon Valley;400;SAP;Apple;Cisco;0
+3;¿Cuál fue la empresa que fabricó el primer automóvil?;600;Mercedes-Benz;Ford;Peugeot;0
+4;¿Cuáles de las siguientes empresas pertenecen a hermanos de la misma familia?;800;CocaCola-Schweppes;Adidas-Puma;Foot locker-Nike;0
+5;¿Cuál de estas empresas no pertenecen al Grupo Volkswagen?;1000;Bugatti;Ferrari;Lamvorghini;1

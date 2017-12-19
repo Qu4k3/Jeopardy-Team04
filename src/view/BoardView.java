@@ -59,7 +59,6 @@ public class BoardView extends JFrame {
 
     void addComponentsToPane(Container contenido) {
 
-        //contenido.setLayout(new BorderLayout(1000, 640));
         contenido.setLayout(new FlowLayout());
         contenido.setBackground(Color.black);
         
@@ -86,7 +85,7 @@ public class BoardView extends JFrame {
             //buttonsPanel
             buttonsPanel = new JPanel(new GridLayout(5, 6));
             buttonsPanel.setSize(800, 420);
-            int[] values = {200, 400, 600, 800, 1000};//Cambiar los valores por las puntuaciones reales;
+            int[] values = {200, 400, 600, 800, 1000};
             questionsButtons = new JButton[values.length][6];
             for (int i = 0; i < values.length; i++) {
                 for (int j = 0; j < 6; j++) {

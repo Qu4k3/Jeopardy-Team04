@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.PlayerModel;
+import view.CategoryView;
 import view.PlayersDataView;
 
 /**
@@ -18,11 +19,12 @@ import view.PlayersDataView;
 public class PlayerDataController implements ActionListener {
 
     private view.PlayersDataView viewData;
-    private model.PlayerModel modeloPlayer;
-//    static PlayerModel PlayerOne = new PlayerModel();
-//    static PlayerModel PlayerTwo = new PlayerModel();
+    private model.PlayerModel playerModel;
+    PlayerModel PlayerOne;
+    PlayerModel PlayerTwo;
 
-    public PlayerDataController(PlayersDataView viewData) {
+    public PlayerDataController(PlayersDataView viewData, PlayerModel modelPlayer) {
+        this.playerModel = modelPlayer;
         this.viewData = viewData;
         this.viewData.startGame.addActionListener(this);
 
@@ -35,26 +37,33 @@ public class PlayerDataController implements ActionListener {
             //if general playerOne y playerTwo
             if ((this.viewData.playerOne.getText().isEmpty() || this.viewData.playerOne.getText().contains(" "))
                     && (this.viewData.playerTwo.getText().isEmpty() || this.viewData.playerTwo.getText().contains(" "))) {
-
-                JOptionPane.showMessageDialog(viewData, "No has ingresado ningun nombre a los jugadores. \n los nombres tienen que ser sin espacios");
+                JOptionPane.showMessageDialog(viewData, "No has ingresado ningun nombre a los jugadores. \nLos nombres tienen que ser sin espacios","¡¡Error!!", 0);
 
             } else {
 
                 if (this.viewData.playerOne.getText().isEmpty() || this.viewData.playerOne.getText().contains(" ")) {
-                        JOptionPane.showMessageDialog(viewData, "No has ingresado un nombre para el PlayerOne \n o contiene alguno espacio");
+                    JOptionPane.showMessageDialog(viewData, "No has ingresado un nombre para el PlayerOne \n o contiene alguno espacio","¡¡Error!!", 0);
+
                 } else {
-                    
+
                     if (this.viewData.playerTwo.getText().isEmpty() || this.viewData.playerTwo.getText().contains(" ")) {
-                        JOptionPane.showMessageDialog(viewData, "No has ingresado un nombre para el PlayerTwo \n o contiene alguno espacio");
+                        JOptionPane.showMessageDialog(viewData, "No has ingresado un nombre para el PlayerTwo \n o contiene alguno espacio","¡¡Error!!", 0);
 
                     } else {
-                            if (this.viewData.playerOne.getText().equals(this.viewData.playerTwo.getText())) {
-                           JOptionPane.showMessageDialog(viewData, "los nombres de los players no pueden ser iguales");
+                        if (this.viewData.playerOne.getText().equals(this.viewData.playerTwo.getText())) {
+                            JOptionPane.showMessageDialog(viewData, "los nombres de los players no pueden ser iguales","¡¡Error!!", 0);
 
-                        }else{
-                            JOptionPane.showMessageDialog(viewData, "\t Bienvenidos Jugadores: \n PlayerOne: " + viewData.playerOne.getText() + " PlayerTwo: " + viewData.playerTwo.getText());
 
-                            }
+                        } else {
+                            
+                            PlayerOne = new PlayerModel(this.viewData.playerOne.getText());
+                            PlayerTwo = new PlayerModel(this.viewData.playerTwo.getText());
+                            
+                            
+                            JOptionPane.showMessageDialog(viewData, "Bienvenidos Jugadores: \n PlayerOne: " + viewData.playerOne.getText() + " PlayerTwo: " + viewData.playerTwo.getText(),"Registro Completo",1);
+                            CategoryView CateView = new CategoryView();
+                            CategoryController controller = new CategoryController(CateView,PlayerOne,PlayerTwo);
+                        }
 
                     }
                 }
