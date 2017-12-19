@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.awt.Color;
@@ -15,11 +10,8 @@ import view.BoardView;
 import model.LoadModel;
 import model.PlayerModel;
 import model.QuestionModel;
+import view.WinnerView;
 
-/**
- *
- * @author Diego
- */
 public class BoardController implements ActionListener {
 
     private LoadModel model;
@@ -167,6 +159,7 @@ public class BoardController implements ActionListener {
     }
 
     public void ganador() {
-
+        WinnerView winnerView = new WinnerView();
+        WinnerController winnerController = new WinnerController(winnerView,j1,j2);
     }
 }
