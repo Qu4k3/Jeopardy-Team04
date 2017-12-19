@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.BorderLayout;
@@ -20,22 +15,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Diego
- */
-public class PlayersDataView extends JFrame{
+public class PlayersDataView extends JFrame {
 
     public JTextField playerOne, playerTwo;
     public JLabel tittleView;
-    public JButton startGame,ButtonPrueba;
+    public JButton startGame, ButtonPrueba;
     JLabel labelPlayerOne, labelPlayerTwo;
     BorderLayout principalLayout;
     JLabel prueba;
     String bgColor;
     JPanel playersPanel;
     JPanel centerPanel;
-    ImageIcon  image,imagePrueba;
+    ImageIcon image, imagePrueba;
     JPanel playerPanelOne, playerPanelTwo;
 
     public PlayersDataView() {
@@ -44,7 +35,7 @@ public class PlayersDataView extends JFrame{
         this.setResizable(false);
         addComponentsTopane(this.getContentPane());
         this.pack();
-        this.setSize(560, 360);       
+        this.setSize(560, 360);
         this.setVisible(true);
         ImageIcon img = new ImageIcon("img/logo/favicon.ico");
         this.setIconImage(img.getImage());
@@ -65,38 +56,36 @@ public class PlayersDataView extends JFrame{
 //        pane.add(centerPanel);
         centerPanel.add(Box.createVerticalStrut(70));
         // playersPanel
-            playersPanel = new JPanel();
-                //Panel player One
-                playerPanelOne = new JPanel();
-                playerPanelOne.setLayout(new BoxLayout(playerPanelOne, BoxLayout.Y_AXIS));
-                    //labell player1
-                    labelPlayerOne = new JLabel();
-                    labelPlayerOne.setText("Player One");
-                    labelPlayerOne.setAlignmentX(Component.CENTER_ALIGNMENT);
-                    playerPanelOne.add(labelPlayerOne);
-                    playerPanelOne.add(Box.createVerticalStrut(10));
-                    //textField Player1
-                    playerOne = new JTextField(10);
-                    playerOne.setOpaque(true);
-                    playerPanelOne.add(playerOne);
-            playersPanel.add(playerPanelOne);
-                //panel player Two
-                playerPanelTwo = new JPanel();
-                playerPanelTwo.setLayout(new BoxLayout(playerPanelTwo, BoxLayout.Y_AXIS));
-                    //label player2 
-                    labelPlayerTwo = new JLabel();
-                    labelPlayerTwo.setText("Player Two");
-                    labelPlayerTwo.setAlignmentX(Component.CENTER_ALIGNMENT);
-                    playerPanelTwo.add(labelPlayerTwo);
-                    playerPanelTwo.add(Box.createVerticalStrut(10));
+        playersPanel = new JPanel();
+        //Panel player One
+        playerPanelOne = new JPanel();
+        playerPanelOne.setLayout(new BoxLayout(playerPanelOne, BoxLayout.Y_AXIS));
+        //labell player1
+        labelPlayerOne = new JLabel();
+        labelPlayerOne.setText("Player One");
+        labelPlayerOne.setAlignmentX(Component.CENTER_ALIGNMENT);
+        playerPanelOne.add(labelPlayerOne);
+        playerPanelOne.add(Box.createVerticalStrut(10));
+        //textField Player1
+        playerOne = new JTextField(10);
+        playerOne.setOpaque(true);
+        playerPanelOne.add(playerOne);
+        playersPanel.add(playerPanelOne);
+        //panel player Two
+        playerPanelTwo = new JPanel();
+        playerPanelTwo.setLayout(new BoxLayout(playerPanelTwo, BoxLayout.Y_AXIS));
+        //label player2 
+        labelPlayerTwo = new JLabel();
+        labelPlayerTwo.setText("Player Two");
+        labelPlayerTwo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        playerPanelTwo.add(labelPlayerTwo);
+        playerPanelTwo.add(Box.createVerticalStrut(10));
 
-                     //textField Player1
-                    playerTwo = new JTextField(10);
-                    playerTwo.setOpaque(true);
-                    playerPanelTwo.add(playerTwo);
-            playersPanel.add(playerPanelTwo);
-                           
-                    
+        //textField Player1
+        playerTwo = new JTextField(10);
+        playerTwo.setOpaque(true);
+        playerPanelTwo.add(playerTwo);
+        playersPanel.add(playerPanelTwo);
 
         //playersPanel.setBorder(BorderFactory.createEmptyBorder(15, 10, 10, 15));
         centerPanel.add(playersPanel);
@@ -106,15 +95,15 @@ public class PlayersDataView extends JFrame{
         startGame = new JButton();
         startGame.setText("Start Game");
         startGame.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bgColor="#29c42f";
+        bgColor = "#29c42f";
         startGame.setBackground(Color.decode(bgColor));
         startGame.setBorder(BorderFactory.createLineBorder(Color.decode(bgColor), 5, false));
-        
+
         centerPanel.add(startGame);
         centerPanel.add(Box.createVerticalStrut(65));
 
         pane.add(centerPanel);
-  
+
     }
 
 }

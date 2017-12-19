@@ -11,31 +11,31 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class StartView extends JFrame {
-    
+
     private static JLabel message1;
     private static JLabel message2;
     private static JLabel message3;
     private static JLabel animation;
     private static JLabel logo;
     private static JPanel centerPanel;
-    
+
     public StartView() {
 
         this.setTitle("JeopardyGame! - Iniciando el juego");
         this.setPreferredSize(new Dimension(560, 360));
         this.setLocation(250, 250);
         this.setResizable(false);
-        
+
         ImageIcon img = new ImageIcon("img/logo/favicon.ico");
         this.setIconImage(img.getImage());
 
         addComponentsToPane(this.getContentPane());
         this.pack();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);       
-        
+        this.setVisible(true);
+
         showmesage();
-        
+
         try {
             Thread.sleep(1000);
             this.setVisible(false);
@@ -43,27 +43,27 @@ public class StartView extends JFrame {
             ex.printStackTrace();
         }
     }
-    
+
     private static void addComponentsToPane(Container pane) {
-               
+
         centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 
         // espaciado
         centerPanel.add(Box.createVerticalStrut(50));
-        
+
         logo = new JLabel(new ImageIcon("img/logo/jeo_green.png"));
         logo.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(logo);
-        
+
         // espaciado
         centerPanel.add(Box.createVerticalStrut(50));
-        
+
         // Gif de carga
         animation = new JLabel(new ImageIcon("img/animated/ripple.gif"));
         animation.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(animation);
-        
+
         centerPanel.add(Box.createVerticalStrut(50));
 
         //Define panel de los mensajes
@@ -84,10 +84,10 @@ public class StartView extends JFrame {
         message3.setAlignmentX(Component.CENTER_ALIGNMENT);
         message3.setFont(message3.getFont().deriveFont(16.0f));
         centerPanel.add(message3);
-        
+
         pane.add(centerPanel);
-    
-    }   
+
+    }
 
     public static void showmesage() {
 
@@ -118,5 +118,5 @@ public class StartView extends JFrame {
             System.out.println("fallo");
         }
     }
-    
+
 }

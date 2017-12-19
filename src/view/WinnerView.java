@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class WinnerView extends JFrame {
-    
+
     public static JLabel winner, player1, player2, wallet1, wallet2, mistakes1, mistakes2, logo;
     public static JPanel centeredBoxPanel, middlePanel, buttonsPanel, playerInfo, player2Info;
     public static JButton exitButton, retryButton;
@@ -134,5 +134,5 @@ public class WinnerView extends JFrame {
         pane.add(centeredBoxPanel);
         
     }
-    
+
 }
