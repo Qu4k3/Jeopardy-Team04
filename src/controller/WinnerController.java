@@ -2,29 +2,29 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import model.PlayerModel;
+import view.PlayersDataView;
 import view.WinnerView;
 
 public class WinnerController implements ActionListener {
 
-    private PlayerModel model;
     private WinnerView view;
+    private PlayerModel JugadorUno, JugadorDos;
 
     public WinnerController(WinnerView view, PlayerModel j1, PlayerModel j2) {
-        this.model = model;
         this.view = view;
+        this.JugadorUno = j1;
+        this.JugadorDos = j2;
 
         //Set view data
-        this.view.player1.setText("Enhorabuena, " + "player_name!");
+        this.view.winner.setText(winner(j1, j2));
 
-        this.view.player1.setText("player1_name");
-        this.view.player2.setText("player2_name");
+        this.view.player1.setText(j1.getName());
+        this.view.player2.setText(j2.getName());
 
-        this.view.wallet1.setText("$200");
-        this.view.wallet2.setText("$500");
-
-        this.view.mistakes1.setText("7");
-        this.view.mistakes2.setText("5");
+        this.view.wallet1.setText("$ " + Integer.toString(j1.getScore()));
+        this.view.wallet2.setText("$ " + Integer.toString(j2.getScore()));
 
         //Add listeners to the view
         this.view.retryButton.addActionListener(this);
@@ -33,11 +33,21 @@ public class WinnerController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == this.view.retryButton) {
-            //new PlayerDataController(, view);
+        if (ae.getSource() == this.view.retryButton) {            
+            PlayersDataView payersDataView = new PlayersDataView();
+            PlayerModel model = new PlayerModel();
+            PlayerDataController controller = new PlayerDataController(payersDataView, model);
         } else if (ae.getSource() == this.view.exitButton) {
+            JOptionPane.showMessageDialog(view, "¡Gracias por jugar!");
             System.exit(0);
         }
     }
-
+    
+    public String winner(PlayerModel p1, PlayerModel p2) {
+        if (p1.getScore() > p2.getScore()) {
+            return "El ganador es " + p1.getName();
+        } else {
+            return "El ganador es " + p2.getName();
+        }       
+    }
 }
