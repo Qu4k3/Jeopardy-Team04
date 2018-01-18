@@ -7,49 +7,42 @@ import view.WinnerView;
 
 public class WinnerController implements ActionListener {
 
-    private PlayerModel model;
     private WinnerView view;
+    private PlayerModel JugadorUno, JugadorDos;
 
     public WinnerController(WinnerView view, PlayerModel j1, PlayerModel j2) {
-
-        this.model = model;
         this.view = view;
+        this.JugadorUno = j1;
+        this.JugadorDos = j2;
 
         //Set view data
-        this.view.player1.setText("Enhorabuena, " + "player_name!");
+        this.view.winner.setText(winnerOutput(j1, j2));
 
-        this.view.player1.setText("player1_name");
-        this.view.player2.setText("player2_name");
+        this.view.player1.setText(j1.getName());
+        this.view.player2.setText(j2.getName());
 
-        this.view.wallet1.setText("$200");
-        this.view.wallet2.setText("$500");
-
-        this.view.mistakes1.setText("7");
-        this.view.mistakes2.setText("5");
-
-        //Set view data
-        this.view.player1.setText("Enhorabuena, " + "player_name!");
-
-        this.view.player1.setText("player1_name");
-        this.view.player2.setText("player2_name");
-
-        this.view.wallet1.setText("$200");
-        this.view.wallet2.setText("$500");
-
-        this.view.mistakes1.setText("7");
-        this.view.mistakes2.setText("5");
+        this.view.wallet1.setText("$ " + Integer.toString(j1.getScore()));
+        this.view.wallet2.setText("$ " + Integer.toString(j2.getScore()));
 
         //Add listeners to the view
-        this.view.retryButton.addActionListener(this);
+        //this.view.jump20.addActionListener(this);
         this.view.exitButton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == this.view.retryButton) {
+        if (ae.getSource() == this.view.jump20) {
             //new PlayerDataController(, view);
         } else if (ae.getSource() == this.view.exitButton) {
             System.exit(0);
+        }
+    }
+    
+    public String winnerOutput(PlayerModel j1, PlayerModel j2){
+        if (j1.getScore() > j2.getScore()) {
+            return "¡El ganador es " + j1.getName()+"!";
+        } else {
+            return "¡El ganador es " + j2.getName()+"!";
         }
     }
 
