@@ -20,7 +20,7 @@ public class BoardController implements ActionListener {
     private PlayerDataController playerController;
     private PlayerModel j1, j2;
     private ArrayList<String> listaSelectedCategories;
-    
+
     PlayerModel currentPlayer = new PlayerModel();
 
     public BoardController(LoadModel model, BoardView view, PlayerModel playerOne, PlayerModel playerTwo, ArrayList<String> listaSelectedCategories) {
@@ -159,7 +159,7 @@ public class BoardController implements ActionListener {
     }
 
     public void ganador() {
-        WinnerView winnerView = new WinnerView();
-        WinnerController winnerController = new WinnerController(winnerView,j1,j2);
+        /*WinnerView winnerView = new WinnerView();
+        WinnerController winnerController = new WinnerController(winnerView,j1,j2);*/
     }
 }
